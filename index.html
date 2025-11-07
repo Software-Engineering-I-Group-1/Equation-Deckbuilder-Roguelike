@@ -1,79 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Title</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Page Title</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
-    <!-- General Style -->
-    <link href="css/style.css" rel="stylesheet">
+        <!-- General Style -->
+        <link href="css/style.css" rel="stylesheet">
 
-    <!-- Content of buttons -->
-    <link href="css/content.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Content -->
+        <!-- Content of buttons -->
+        <link href="css/content.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Header example from https://getbootstrap.com/docs/5.3/examples/headers/ -->
+        <div class="container"> 
+            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"> 
+                <div class="col-md-3 mb-2 mb-md-0"> 
+                    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none"> 
+                        <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg> 
+                    </a> 
+                </div> 
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"> 
+                    <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li> 
+                    <li><a href="#" class="nav-link px-2">Features</a></li> 
+                    <li><a href="#" class="nav-link px-2">Pricing</a></li>
+                    <li><a href="#" class="nav-link px-2">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-2">About</a></li> 
+                </ul> 
+                <div class="col-md-3 text-end"> 
+                    <button type="button" class="btn btn-outline-primary me-2">Login</button> 
+                    <button type="button" class="btn btn-primary">Sign-up</button> 
+                </div> 
+            </header> 
+        </div>
+        <!-- Tab Buttons -->
+        <div class="container" width="90%">
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'ProjectDescription')">Project Description</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton active" onclick="toggleTab(event, 'Requirements')">Requirements</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'UseCaseDiagram')">Use Case Diagram</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'ClassDiagram')">Class Diagram</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SequenceDiagram1')">Sequence Diagram 1</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SequenceDiagram2')">Sequence Diagram 2</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SRSv1')">SRSv1</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Prototype')">Prototype</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'DemoVideo')">Demo Video</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Resources')">Resources</button>
+            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Team')">Team</button>
+        </div>
 
-    <!-- Tab Buttons -->
-    <div class="container" width="90%">
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'ProjectDescription')">Project Description</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton active" onclick="toggleTab(event, 'Requirements')">Requirements</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'UseCaseDiagram')">Use Case Diagram</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'ClassDiagram')">Class Diagram</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SequenceDiagram1')">Sequence Diagram 1</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SequenceDiagram2')">Sequence Diagram 2</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SRSv1')">SRSv1</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Prototype')">Prototype</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'DemoVideo')">Demo Video</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Resources')">Resources</button>
-        <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Team')">Team</button>
-    </div>
+        <!-- Tab Contents -->
+        <div id="ProjectDescription" class="tabContent container">
+            <h1>Project Description PlaceHolder</h1>
+        </div>
+        <div id="Requirements" class="tabContent container">
+            <iframe src="pdfs/Requirements.pdf" class="content"></iframe>
+        </div>
+        <div id="UseCaseDiagram" class="tabContent container d-none">
+            <img src="images/UseCaseDiagram.jpg" class="content">
+        </div>
+        <div id="ClassDiagram" class="tabContent container d-none">
+            <img src="images/ProjectClassDiagram.jpg" class="content">
+        </div>
+        <div id="SequenceDiagram1" class="tabContent container d-none">
+            <img src="images/EndingTurnAndAttackEnemySequenceDiagram.jpg" class="content">
+        </div>
+        <div id="SequenceDiagram2" class="tabContent container d-none">
+            <img src="images/PlayerCardInteractionSequenceDiagram.jpg" class="content">
+        </div>
+        <div id="SRSv1" class="tabContent container d-none">
+            <h1>SRSv1 PlaceHolder</h1>
+        </div>
+        <div id="Prototype" class="tabContent container d-none">
+            <h1>Prototype PlaceHolder</h1>
+        </div>
+        <div id="DemoVideo" class="tabContent container d-none">
+            <h1>Demo Video PlaceHolder</h1>
+        </div>
+        <div id="Resources" class="tabContent container d-none">
+            <h1>Resources PlaceHolder</h1>
+        </div>
+        <div id="Team" class="tabContent container d-none">
+            <h1>Team PlaceHolder</h1>
+        </div>
 
-    <!-- Tab Contents -->
-    <div id="ProjectDescription" class="tabContent container">
-        <h1>Project Description PlaceHolder</h1>
-    </div>
-    <div id="Requirements" class="tabContent container">
-        <iframe src="pdfs/Requirements.pdf" class="content"></iframe>
-    </div>
-    <div id="UseCaseDiagram" class="tabContent container d-none">
-        <img src="images/UseCaseDiagram.jpg" class="content">
-    </div>
-    <div id="ClassDiagram" class="tabContent container d-none">
-        <img src="images/ProjectClassDiagram.jpg" class="content">
-    </div>
-    <div id="SequenceDiagram1" class="tabContent container d-none">
-        <img src="images/EndingTurnAndAttackEnemySequenceDiagram.jpg" class="content">
-    </div>
-    <div id="SequenceDiagram2" class="tabContent container d-none">
-        <img src="images/PlayerCardInteractionSequenceDiagram.jpg" class="content">
-    </div>
-    <div id="SRSv1" class="tabContent container d-none">
-        <h1>SRSv1 PlaceHolder</h1>
-    </div>
-    <div id="Prototype" class="tabContent container d-none">
-        <h1>Prototype PlaceHolder</h1>
-    </div>
-    <div id="DemoVideo" class="tabContent container d-none">
-        <h1>Demo Video PlaceHolder</h1>
-    </div>
-    <div id="Resources" class="tabContent container d-none">
-        <h1>Resources PlaceHolder</h1>
-    </div>
-    <div id="Team" class="tabContent container d-none">
-        <h1>Team PlaceHolder</h1>
-    </div>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-
-    <!-- JavaScript for buttons -->
-    <script type="text/javascript" src="js/button.js"></script>
-</body>
+        <!-- JavaScript for buttons -->
+        <script type="text/javascript" src="js/button.js"></script>
+    </body>
 </html>
