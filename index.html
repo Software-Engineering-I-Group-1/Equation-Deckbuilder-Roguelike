@@ -16,46 +16,38 @@
     </head>
     <body>
         <!-- Header example from https://getbootstrap.com/docs/5.3/examples/headers/ -->
-        <div class="container"> 
-            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"> 
-                <div class="col-md-2 mb-2 mb-md-0"> 
-                    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none"> 
-                        <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-                            <use xlink:href="#bootstrap"></use>  <!-- UPDATE THIS WITH A LOGO WHEN WE HAVE ONE -->
-                        </svg> 
+        <div class="container">
+            
+            <header class="flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"> 
+                <div class="nav col-12 col-md-auto mb-2 mb-md-0 container" style="float:left">
+                    <a href="/" style="display: inline-block"> 
+                        <img src="images/logoholder.jpg" height="30px" width="30px">
                     </a> 
-                </div> 
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"> 
-                    <li><a href="#" class="nav-link px-2 link-secondary">Project description</a></li> 
-                    <li><a href="#" class="nav-link px-2">Requirements</a></li> 
-                    <li><a href="#" class="nav-link px-2">Use case diagram</a></li>
-                    <li><a href="#" class="nav-link px-2">Class diagram</a></li>
-                    <li><a href="#" class="nav-link px-2">Sequence diagram</a></li> 
-                    <li><a href="#" class="nav-link px-2">SRS</a></li> 
-                    <li><a href="#" class="nav-link px-2">Prototype</a></li> 
-                    <li><a href="#" class="nav-link px-2">Demo Video</a></li> 
-                    <li><a href="#" class="nav-link px-2">Resources</a></li> 
-                    <li><a href="#" class="nav-link px-2">Team</a></li> 
-                </ul> 
-                <div class="col-md-3 text-end"> 
-                    <!-- <button type="button" class="btn btn-outline-primary me-2">Login</button> -->
-                    <!-- <button type="button" class="btn btn-primary">Sign-up</button> -->
-                </div> 
+                </div>
+                
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 container" style="padding-right: 40px;"> 
+
+                    <button class="btn btn-secondary tabButton active" onclick="toggleTab(event, 'ProjectDescription')">Project Description</button>
+                    <button class="btn btn-secondary tabButton" onclick="toggleTab(event, 'Requirements')">Requirements</button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Diagrams
+                        </button>
+                        <ul class="dropdown-menu">
+                            <button class="btn btn-secondary tabButton dropdown-item" onclick="toggleTab(event, 'UseCaseDiagram')">Use Case Diagram</button>
+                            <button class="btn btn-secondary tabButton dropdown-item" onclick="toggleTab(event, 'ClassDiagram')">Class Diagram</button>
+                            <button class="btn btn-secondary tabButton dropdown-item" onclick="toggleTab(event, 'SequenceDiagram1')">Sequence Diagram 1</button>
+                            <button class="btn btn-secondary tabButton dropdown-item" onclick="toggleTab(event, 'SequenceDiagram2')">Sequence Diagram 2</button>
+                        </ul>
+                    </div>
+                    <button class="btn btn-secondary tabButton" onclick="toggleTab(event, 'SRSv1')">SRSv1</button>
+                    <button class="btn btn-secondary tabButton" onclick="toggleTab(event, 'Prototype')">Prototype</button>
+                    <button class="btn btn-secondary tabButton" onclick="toggleTab(event, 'DemoVideo')">Demo Video</button>
+                    <button class="btn btn-secondary tabButton" onclick="toggleTab(event, 'Resources')">Resources</button>
+                    <button class="btn btn-secondary tabButton" onclick="toggleTab(event, 'Team')">Team</button>
+                </ul>
+
             </header> 
-        </div>
-        <!-- Tab Buttons -->
-        <div class="container" width="90%">
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'ProjectDescription')">Project Description</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton active" onclick="toggleTab(event, 'Requirements')">Requirements</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'UseCaseDiagram')">Use Case Diagram</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'ClassDiagram')">Class Diagram</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SequenceDiagram1')">Sequence Diagram 1</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SequenceDiagram2')">Sequence Diagram 2</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'SRSv1')">SRSv1</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Prototype')">Prototype</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'DemoVideo')">Demo Video</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Resources')">Resources</button>
-            <button class="flex-fill btn btn-secondary fs-1 tabButton" onclick="toggleTab(event, 'Team')">Team</button>
         </div>
 
         <!-- Tab Contents -->
