@@ -14,14 +14,13 @@
         <!-- Content of buttons -->
         <link href="css/content.css" rel="stylesheet">
 
-        <!-- Buttons -->
-        <link href="css/button.css" rel="stylesheet">
+        <!-- Navbar -->
+        <link href="css/navbar.css" rel="stylesheet">
     </head>
     <body>
         <!-- Header example from https://getbootstrap.com/docs/5.3/examples/headers/ -->
-        <div class="container">
-            
-            <header class="flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"> 
+        <div id="navbar" class="container-fluid">
+            <header class="flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom" style="width: 100%;"> 
                 <div class="nav col-12 col-md-auto mb-2 mb-md-0 container" style="float:left">
                     <a href="/" style="display: inline-block"> 
                         <img src="images/logoholder.jpg" height="30px" width="30px">
@@ -57,7 +56,7 @@
         <div id="ProjectDescription" class="tabContent container">
             <h1>Project Description PlaceHolder</h1>
         </div>
-        <div id="Requirements" class="tabContent container">
+        <div id="Requirements" class="tabContent container d-none">
             <iframe src="pdfs/Requirements.pdf" class="content"></iframe>
         </div>
         <div id="UseCaseDiagram" class="tabContent container d-none">
