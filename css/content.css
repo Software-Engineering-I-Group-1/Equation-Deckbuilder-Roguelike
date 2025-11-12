@@ -1,4 +1,7 @@
 /* The styling for the content displayed by the buttons */
+.tabContent{
+    margin-top: 20px;
+}
 .content{
     display: block;
     width: 90%;
