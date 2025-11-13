@@ -18,7 +18,7 @@ img.content{
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     iframe{ height: 70vh; }
     .content{ width: 95%; }
 }
