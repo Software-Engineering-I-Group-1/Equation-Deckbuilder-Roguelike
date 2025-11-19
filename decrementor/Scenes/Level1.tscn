@@ -46,11 +46,11 @@ theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 
-[node name="Quit" type="Button" parent="UI (CanvasLayer)/Pause Menu/Button Box (VBoxContainer)"]
+[node name="Main Menu" type="Button" parent="UI (CanvasLayer)/Pause Menu/Button Box (VBoxContainer)"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 50
-text = "Quit
+text = "Main Menu
 "
 
 [node name="Title (Label)" type="Label" parent="UI (CanvasLayer)/Pause Menu"]

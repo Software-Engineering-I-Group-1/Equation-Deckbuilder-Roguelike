@@ -6,7 +6,7 @@ func _ready():
 	get_node("Button Box (VBoxContainer)/Resume").pressed.connect(_on_resume_pressed)
 	get_node("Button Box (VBoxContainer)/Settings").pressed.connect(_on_settings_pressed)
 	get_node("Settings (Panel)/Back").pressed.connect(_on_back_pressed)
-	get_node("Button Box (VBoxContainer)/Quit").pressed.connect(_on_quit_pressed)
+	get_node("Button Box (VBoxContainer)/Main Menu").pressed.connect(_on_main_pressed)
 	
 func _input(event): 
 	if event.is_action_pressed("ui_pause"): toggle_pause_menu()
@@ -24,6 +24,5 @@ func _on_settings_pressed():
 func _on_back_pressed():
 	$"Settings (Panel)".visible = false;
 	
-func _on_quit_pressed():
-	# Quits program:
-	get_tree().quit()
+func _on_main_pressed():
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
