@@ -6,7 +6,6 @@ func _ready():
 	get_node("Button Box (VBoxContainer)/Play").pressed.connect(_on_play_pressed)
 	get_node("Button Box (VBoxContainer)/Settings").pressed.connect(_on_settings_pressed)
 	get_node("Settings (Panel)/Back").pressed.connect(_on_back_pressed)
-	get_node("Button Box (VBoxContainer)/Quit").pressed.connect(_on_quit_pressed)
 	
 func _on_play_pressed():
 	# Changes scene to main scene:
@@ -17,7 +16,3 @@ func _on_settings_pressed():
 	
 func _on_back_pressed():
 	$"Settings (Panel)".visible = false;
-	
-func _on_quit_pressed():
-	# Quits program:
-	get_tree().quit()

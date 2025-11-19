@@ -41,13 +41,6 @@ theme_override_fonts/font = ExtResource("2_8saeu")
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 
-[node name="Quit" type="Button" parent="Button Box (VBoxContainer)"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8saeu")
-theme_override_font_sizes/font_size = 50
-text = "Quit
-"
-
 [node name="Title (Label)" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
