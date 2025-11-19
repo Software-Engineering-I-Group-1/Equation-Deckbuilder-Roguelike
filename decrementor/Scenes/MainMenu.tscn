@@ -102,7 +102,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 value = 50.0
 
-[node name="Button" type="Button" parent="Settings (Panel)"]
+[node name="Back" type="Button" parent="Settings (Panel)"]
 layout_mode = 1
 offset_right = 144.0
 offset_bottom = 81.0
