@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=7 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q12u6"]
 bg_color = Color(0.27251795, 0.2656641, 0.2563085, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q12u6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joc8x"]
+bg_color = Color(0.5990842, 0, 0.0045382483, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jghel"]
+bg_color = Color(0.6, 0, 0.003921569, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Node2D" type="Node2D"]
 
@@ -116,7 +132,32 @@ theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 53
 text = "<<<"
 
-[node name="UI (Panel)" type="Panel" parent="UI (CanvasLayer)/Pause Menu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UI (Panel)" type="Panel" parent="UI (CanvasLayer)"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q12u6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI (CanvasLayer)/UI (Panel)"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 430.5
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="UI (CanvasLayer)/UI (Panel)/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "HP: "
+
+[node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/UI (Panel)/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_joc8x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jghel")
+value = 100.0
+show_percentage = false
