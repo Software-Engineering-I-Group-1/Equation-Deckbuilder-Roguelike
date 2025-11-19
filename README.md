@@ -14,7 +14,7 @@ will teach students to think critically about how they would go about forming ce
 Our prototype has a main menu, a pause menu, and a settings menu. The settings menu is accessible from both the main menu and pause menu and has an option to adjust the volume.
 
 ## Demo Video:
-YouTube had its first-ever video publication on April 23, 2005, and we have it as one of our demo videos.
+YouTube had its first-ever video publication on April 23, 2005, and we have it as the placeholder for our demo video.
 
 ## Bibliography:
 This website was made with Bootstrap.
