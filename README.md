@@ -13,7 +13,9 @@ Angel Chikumbirike
 Abhiram Garre
 Orion Golden
 Phyo Naing
-We are all the software developers of this game, and Nicholas came up with the story and art.
+
+Nicholas came up with the story and art. He and Phyo worked on the UI of the game.
+We are all the software developers of this game.
 
 ## Software Requirements Specification:
 
