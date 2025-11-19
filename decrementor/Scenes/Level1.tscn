@@ -71,7 +71,7 @@ grow_horizontal = 0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 53
-text = "SCORE: "
+text = "SCORE: XXXXXX"
 
 [node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/UI (Panel)/HBoxContainer2"]
 layout_mode = 2
