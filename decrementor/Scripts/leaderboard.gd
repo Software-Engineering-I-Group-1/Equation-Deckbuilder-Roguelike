@@ -3,7 +3,7 @@ extends GridContainer
 var player_list_with_pos = []
 
 func _ready() -> void:
-
+	await get_tree().process_frame
 	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(0).sw_get_scores_complete
 	player_list_with_pos = sort_players_and_add_position(SilentWolf.Scores.scores)
 	add_player_to_grid(player_list_with_pos)
