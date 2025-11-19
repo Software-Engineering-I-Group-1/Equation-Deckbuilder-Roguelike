@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://nk7db4ecd6wr"]
 
-[ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://pause_menu.gd" id="1_q12u6"]
+[ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q12u6"]
@@ -115,3 +115,8 @@ offset_bottom = 81.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 53
 text = "<<<"
+
+[node name="UI (Panel)" type="Panel" parent="UI (CanvasLayer)/Pause Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
