@@ -7,6 +7,13 @@ and will teach students how to form equations to meet different criteria. The go
 will teach students to think critically about how they would go about forming certain numbers.
 
 ## Team roster:
+Nicholas Johnson
+Senny Lu
+Angel Chikumbirike
+Abhiram Garre
+Orion Golden
+Phyo Naing
+We are all the software developers of this game, and Nicholas came up with the story and art.
 
 ## Software Requirements Specification:
 
