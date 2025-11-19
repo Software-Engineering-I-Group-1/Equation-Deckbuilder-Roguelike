@@ -11,7 +11,7 @@ will teach students to think critically about how they would go about forming ce
 ## Software Requirements Specification:
 
 ## Prototype:
-Our prototype has a main menu and a settings menu. The settings menu has an option to adjust the volume.
+Our prototype has a main menu, a pause menu, and a settings menu. The settings menu is accessible from both the main menu and pause menu and has an option to adjust the volume.
 
 ## Demo Video:
 
