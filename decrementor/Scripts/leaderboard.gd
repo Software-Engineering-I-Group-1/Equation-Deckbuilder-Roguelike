@@ -30,6 +30,14 @@ func add_player_to_grid(player_list):
 	for score_data in player_list_with_pos:
 		var score_label = Label.new()
 		score_label.text = str(score_data["score"])
+		if name_label.text == "Donald Trump":
+			name_label.text = "Margot Robbie"
+		if name_label.text == "Epstein":
+			name_label.text = "Aespa Karina"
+		if name_label.text == "Bill Clinton":
+			name_label.text = "Taylor Swift"
+		if name_label.text == "t":
+			name_label.text = "Senny Lu"
 		score_label.show()
 		score_vbox.add_child(score_label)
 	add_child(score_vbox)
