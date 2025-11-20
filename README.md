@@ -1,5 +1,5 @@
 # Equation Deckbuilder Roguelike (name in progress)
-This project is Group 1's submission for Software Engineering I's final project. (add more background and motivation)
+This project is Group 1's submission for Software Engineering I's final project.
 
 ## Description:
 This project takes the form of an educational video game. It is meant for the 6th-grade to 8th-grade US schoolchildren demographic,
@@ -16,8 +16,6 @@ Phyo Naing
 
 Nicholas came up with the story and art. He and Phyo worked on the UI of the game.
 We are all the software developers of this game.
-
-## Software Requirements Specification:
 
 ## Prototype:
 Our prototype has a main menu, a pause menu, and a settings menu. The settings menu is accessible from both the main menu and pause menu and has an option to adjust the volume.
@@ -48,13 +46,3 @@ Google Drawings: https://docs.google.com/drawings
 Placeholder video made by jawed on YouTube.
 
 Me at the zoo: https://www.youtube.com/watch?v=jNQXAC9IVRw
-
-## Original Project Description:
-
-## Project Requirements:
-
-## Use Case Diagram:
-
-## Class Diagram:
-
-## Sequence Diagrams:
