@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=10 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
 [ext_resource type="Script" uid="uid://watu76vudatv" path="res://Scripts/placeholder_died.gd" id="3_joc8x"]
+[ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/User.png" id="4_slnnj"]
+[ext_resource type="Texture2D" uid="uid://c4f6c7y1d0yac" path="res://Assets/Enemy.png" id="5_t3or0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q12u6"]
 
@@ -34,6 +36,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_q12u6")
+
+[node name="ColorRect" type="ColorRect" parent="UI (CanvasLayer)/UI (Panel)"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.20784314)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI (CanvasLayer)/UI (Panel)"]
 layout_mode = 1
@@ -84,11 +92,16 @@ value = 100.0
 show_percentage = false
 
 [node name="Died_placeholder" type="Button" parent="UI (CanvasLayer)/UI (Panel)"]
-layout_mode = 0
-offset_left = 945.0
-offset_top = 598.0
-offset_right = 1149.0
-offset_bottom = 636.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -38.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 12
 text = "U Died (placeholder cuz no functionality)"
@@ -213,13 +226,21 @@ text = "<<<"
 [node name="User" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="User"]
+position = Vector2(270, 306)
+scale = Vector2(4, 4)
+texture = ExtResource("4_slnnj")
 
 [node name="Enemy" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(932, 296)
+scale = Vector2(4, 4)
+texture = ExtResource("5_t3or0")
 
 [node name="ProgressBar" type="ProgressBar" parent="Enemy"]
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = 641.0
+offset_top = 101.0
+offset_right = 703.0
+offset_bottom = 151.0
 
 [connection signal="pressed" from="UI (CanvasLayer)/UI (Panel)/Died_placeholder" to="UI (CanvasLayer)/UI (Panel)/Died_placeholder" method="_on_pressed"]
