@@ -1,12 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=18 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
+[ext_resource type="PackedScene" uid="uid://cuwcnbr7yu3mb" path="res://Scenes/hand_area.tscn" id="3_2h8qs"]
 [ext_resource type="Script" uid="uid://watu76vudatv" path="res://Scripts/placeholder_died.gd" id="3_joc8x"]
-[ext_resource type="Texture2D" uid="uid://46yjt36vrei5" path="res://Assets/Hand.png" id="4_bdlbp"]
-[ext_resource type="PackedScene" uid="uid://bobspb6dd8x0s" path="res://Scenes/card_front_binop.tscn" id="4_kylad"]
+[ext_resource type="PackedScene" uid="uid://dq2q8j8fww1ky" path="res://Scenes/equation_area.tscn" id="3_rpty4"]
+[ext_resource type="Script" uid="uid://cb8yi27uj3rbi" path="res://Scenes/card_manager.gd" id="4_6jj8j"]
+[ext_resource type="Script" uid="uid://4dxdcqq4odg0" path="res://Scenes/equation_area.gd" id="4_06um6"]
 [ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/Images/User.png" id="4_slnnj"]
-[ext_resource type="PackedScene" uid="uid://d1du86ld34le1" path="res://Scenes/card_front_num.tscn" id="5_6ll4n"]
 [ext_resource type="Texture2D" uid="uid://buqg0rddx5koj" path="res://Assets/Images/Enemy.png" id="5_t3or0"]
 [ext_resource type="Script" uid="uid://cn0evpoljb0p4" path="res://Scenes/CombatManager.gd" id="5_ysn8j"]
 [ext_resource type="PackedScene" uid="uid://dp6f81cj1ttt6" path="res://Scenes/card_back.tscn" id="6_t3or0"]
@@ -38,26 +39,10 @@ bg_color = Color(0.6, 0, 0.003921569, 1)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 211.0
-offset_top = 312.0
-offset_right = 729.0
-offset_bottom = 445.0
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 27.0
-offset_right = 459.0
-offset_bottom = 84.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 32
-text = "EQUATION AREA PLACEHOLDER"
-
 [node name="UI (CanvasLayer)" type="CanvasLayer" parent="."]
 
 [node name="UI (Panel)" type="Panel" parent="UI (CanvasLayer)"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -116,57 +101,6 @@ theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 12
 text = "U Died (placeholder cuz no functionality)"
 script = ExtResource("3_joc8x")
-
-[node name="Hand" type="Control" parent="UI (CanvasLayer)"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI (CanvasLayer)/Hand"]
-layout_mode = 1
-offset_left = 67.0
-offset_top = 451.0
-offset_right = 875.0
-offset_bottom = 642.0
-theme_override_constants/separation = 125
-alignment = 1
-
-[node name="Holder" type="Sprite2D" parent="UI (CanvasLayer)/Hand/HBoxContainer"]
-position = Vector2(403, 92)
-scale = Vector2(2, 2)
-texture = ExtResource("4_bdlbp")
-
-[node name="Card7" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("4_kylad")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Card8" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("5_6ll4n")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Card4" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("5_6ll4n")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Card5" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("5_6ll4n")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Card6" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("4_kylad")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Card9" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("4_kylad")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="Pause Menu" type="Control" parent="UI (CanvasLayer)"]
 process_mode = 3
@@ -377,5 +311,15 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_t3or0")
 step = 1.0
 value = 100.0
 rounded = true
+
+[node name="Equation Area" parent="." instance=ExtResource("3_rpty4")]
+position = Vector2(-3, -6)
+script = ExtResource("4_06um6")
+
+[node name="Hand Area" parent="." instance=ExtResource("3_2h8qs")]
+position = Vector2(-1, -1)
+
+[node name="Card Manager" type="Node2D" parent="."]
+script = ExtResource("4_6jj8j")
 
 [connection signal="pressed" from="UI (CanvasLayer)/UI (Panel)/Died_placeholder" to="UI (CanvasLayer)/UI (Panel)/Died_placeholder" method="_on_pressed"]
