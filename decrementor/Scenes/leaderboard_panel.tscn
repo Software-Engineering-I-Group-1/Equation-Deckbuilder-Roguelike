@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdijlxd6dj6bk"]
+[gd_scene load_steps=6 format=3 uid="uid://bdijlxd6dj6bk"]
 
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="1_ql5ns"]
 [ext_resource type="Script" uid="uid://bnhpxgy7yf8aa" path="res://Scripts/leaderboard.gd" id="2_8lni3"]
@@ -7,6 +7,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_8lni3"]
 font = ExtResource("1_ql5ns")
 font_size = 48
+
+[sub_resource type="Theme" id="Theme_vdukc"]
+default_font = ExtResource("1_ql5ns")
+default_font_size = 36
 
 [node name="Leaderboard Panel" type="Control"]
 layout_mode = 3
@@ -41,9 +45,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -273.5
-offset_right = 273.5
-offset_bottom = 48.0
+offset_left = -386.0
+offset_top = 2.0
+offset_right = 271.0
+offset_bottom = 50.0
 grow_horizontal = 2
 theme_override_constants/separation = 150
 
@@ -54,8 +59,10 @@ label_settings = SubResource("LabelSettings_8lni3")
 
 [node name="Label2" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_constants/line_spacing = 3
 text = "Name"
 label_settings = SubResource("LabelSettings_8lni3")
+vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
 layout_mode = 2
@@ -64,10 +71,11 @@ label_settings = SubResource("LabelSettings_8lni3")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 133.0
-offset_top = 65.0
-offset_right = 1046.0
-offset_bottom = 504.0
+offset_left = 257.0
+offset_top = 80.0
+offset_right = 1183.0
+offset_bottom = 551.0
+theme = SubResource("Theme_vdukc")
 columns = 3
 script = ExtResource("2_8lni3")
 
