@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=16 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dq2q8j8fww1ky" path="res://Scenes/equation_area.tscn" id="6_6ll4n"]
 [ext_resource type="PackedScene" uid="uid://dp6f81cj1ttt6" path="res://Scenes/card.tscn" id="6_t3or0"]
 [ext_resource type="Script" uid="uid://4dxdcqq4odg0" path="res://Scenes/equation_area.gd" id="7_kylad"]
-[ext_resource type="PackedScene" uid="uid://cuwcnbr7yu3mb" path="res://Scenes/hand_area.tscn" id="9_2h8qs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q12u6"]
 
@@ -274,21 +273,36 @@ step = 1.0
 value = 100.0
 rounded = true
 
-[node name="EquationArea (HBoxContainer)" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="EquationArea" parent="EquationArea (HBoxContainer)" instance=ExtResource("6_6ll4n")]
+[node name="EquationArea" parent="." instance=ExtResource("6_6ll4n")]
 script = ExtResource("7_kylad")
 
-[node name="HandArea (HBoxContainer)" type="HBoxContainer" parent="."]
-offset_bottom = 40.0
+[node name="Hand (HBoxContainer)" type="HBoxContainer" parent="."]
+offset_left = 88.0
+offset_top = 453.0
+offset_right = 891.0
+offset_bottom = 644.0
 
-[node name="HandArea" parent="HandArea (HBoxContainer)" instance=ExtResource("9_2h8qs")]
-
-[node name="CardManager" type="Node2D" parent="."]
-position = Vector2(3, 0)
+[node name="CardManager" type="Node2D" parent="Hand (HBoxContainer)"]
+position = Vector2(-88, -453)
 script = ExtResource("4_ysn8j")
+
+[node name="Card8" parent="Hand (HBoxContainer)/CardManager" instance=ExtResource("6_t3or0")]
+position = Vector2(695, 550)
+
+[node name="Card7" parent="Hand (HBoxContainer)/CardManager" instance=ExtResource("6_t3or0")]
+position = Vector2(560, 550)
+
+[node name="Card4" parent="Hand (HBoxContainer)/CardManager" instance=ExtResource("6_t3or0")]
+position = Vector2(152, 549)
+
+[node name="Card5" parent="Hand (HBoxContainer)/CardManager" instance=ExtResource("6_t3or0")]
+position = Vector2(289, 549)
+
+[node name="Card6" parent="Hand (HBoxContainer)/CardManager" instance=ExtResource("6_t3or0")]
+position = Vector2(424, 550)
+
+[node name="Card9" parent="Hand (HBoxContainer)/CardManager" instance=ExtResource("6_t3or0")]
+position = Vector2(830, 550)
 
 [node name="Deck (VBoxContainer)" type="VBoxContainer" parent="."]
 offset_left = 1033.0
@@ -296,23 +310,22 @@ offset_top = 369.0
 offset_right = 1086.0
 offset_bottom = 409.0
 
-[node name="Card" parent="Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
-position = Vector2(54, 131)
-
-[node name="Card2" parent="Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
-position = Vector2(41, 142)
-
-[node name="Card3" parent="Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
-position = Vector2(29, 154)
-
-[node name="Card4" parent="Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
-position = Vector2(16, 168)
-
 [node name="Label" type="Label" parent="Deck (VBoxContainer)"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 30
 text = "Deck"
 horizontal_alignment = 1
+
+[node name="Card3" parent="Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
+modulate = Color(0.32172796, 0.32172796, 0.32172796, 1)
+position = Vector2(41, 136)
+
+[node name="Card2" parent="Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
+modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
+position = Vector2(37, 132)
+
+[node name="Card" parent="Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
+position = Vector2(32, 128)
 
 [connection signal="pressed" from="UI (CanvasLayer)/UI (Panel)/Died_placeholder" to="UI (CanvasLayer)/UI (Panel)/Died_placeholder" method="_on_pressed"]

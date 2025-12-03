@@ -1,7 +1,8 @@
 extends Node2D
-var thing = 0
 
-var card_being_dragged 
+const CARD_LOCATION_MASKS = 2
+
+var card_being_dragged
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,17 +17,55 @@ func _input(event):
 			if card:
 				card_being_dragged = card
 		else:
+			if card_being_dragged:
+				var equation_area_found = raycast_check_for_equation_area()
+				if equation_area_found:
+					#set position of card in equation area
+					card_being_dragged.reparent(equation_area_found)
+				
+				var hand_area_found = raycast_check_for_hand_area()
+				if hand_area_found:
+					#set position of card in equation area
+					card_being_dragged.reparent(hand_area_found)
 			card_being_dragged = null
 
+# function checks card collision with mouse
 func raycast_check_for_card():
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
 	parameters.collision_mask = 1
-	#print(result)
 	var result = space_state.intersect_point(parameters)
-	print(result)
+	#print(result)
+	if result.size() > 0:
+		return result[0].collider.get_parent()
+	return null
+
+# function checks (mouse with card) collision with equation area
+func raycast_check_for_equation_area():
+	var space_state = get_world_2d().direct_space_state
+	var parameters = PhysicsPointQueryParameters2D.new()
+	parameters.position = get_global_mouse_position()
+	parameters.collide_with_areas = true
+	parameters.collision_mask = CARD_LOCATION_MASKS
+	#print(parameters.collision_mask)
+	var result = space_state.intersect_point(parameters)
+	#print(result)
+	if result.size() > 0:
+		return result[0].collider.get_parent()
+	return null
+	
+# function checks (mouse with card) collision with hand area
+func raycast_check_for_hand_area():
+	var space_state = get_world_2d().direct_space_state
+	var parameters = PhysicsPointQueryParameters2D.new()
+	parameters.position = get_global_mouse_position()
+	parameters.collide_with_areas = true
+	parameters.collision_mask = CARD_LOCATION_MASKS
+	#print(parameters.collision_mask)
+	var result = space_state.intersect_point(parameters)
+	#print(result)
 	if result.size() > 0:
 		return result[0].collider.get_parent()
 	return null
