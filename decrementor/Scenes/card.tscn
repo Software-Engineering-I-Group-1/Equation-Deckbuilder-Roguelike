@@ -1,24 +1,73 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp6f81cj1ttt6"]
+[gd_scene load_steps=11 format=3 uid="uid://dp6f81cj1ttt6"]
 
-[ext_resource type="Texture2D" uid="uid://ba3ee2d4kxfft" path="res://Assets/Card.png" id="1_0qqmn"]
-[ext_resource type="Texture2D" uid="uid://d4l7o83vb1xpf" path="res://Assets/Card_hover.png" id="2_wf8id"]
+[ext_resource type="Texture2D" uid="uid://cj3sm48o8mioe" path="res://Assets/Base Card.png" id="1_mm04k"]
+[ext_resource type="Texture2D" uid="uid://cfytbfp1pr7em" path="res://Assets/Base Card Number .png" id="2_yvxpl"]
+[ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="3_uf1hq"]
+[ext_resource type="Texture2D" uid="uid://v6o4sld4hj7q" path="res://Assets/Hovered.png" id="4_sj14m"]
+[ext_resource type="Texture2D" uid="uid://6347ox8dhx46" path="res://Assets/Base Operator-export.png" id="5_pyy63"]
+[ext_resource type="Texture2D" uid="uid://bx5numyf52f0k" path="res://Assets/Plus.png" id="6_3b2om"]
+[ext_resource type="Texture2D" uid="uid://i52q633pqcad" path="res://Assets/Multiplication.png" id="7_vsrr6"]
+[ext_resource type="Texture2D" uid="uid://b0lcmgb17xfft" path="res://Assets/Division.png" id="8_lath7"]
+[ext_resource type="Texture2D" uid="uid://cp4uishqklnoa" path="res://Assets/Minus-export.png" id="9_dp72k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ot2lt"]
+font = ExtResource("3_uf1hq")
+font_size = 25
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [node name="Card" type="Node2D"]
-position = Vector2(-11, -24)
 
-[node name="TextureButton" type="TextureButton" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -48.0
-offset_right = 32.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("1_0qqmn")
-texture_hover = ExtResource("2_wf8id")
-metadata/_edit_use_anchors_ = true
+[node name="BaseNumCard" type="Sprite2D" parent="."]
+position = Vector2(-77, -6)
+texture = ExtResource("1_mm04k")
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseNumCard"]
+texture = ExtResource("2_yvxpl")
+
+[node name="Label" type="Label" parent="BaseNumCard"]
+offset_left = -12.0
+offset_top = -13.0
+offset_right = 12.0
+offset_bottom = 13.0
+text = " 5"
+label_settings = SubResource("LabelSettings_ot2lt")
+horizontal_alignment = 3
+vertical_alignment = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="BaseNumCard"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="BaseNumCard"]
+visible = false
+texture = ExtResource("4_sj14m")
+
+[node name="BaseOpCard" type="Sprite2D" parent="."]
+position = Vector2(53, -5)
+texture = ExtResource("1_mm04k")
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseOpCard"]
+texture = ExtResource("5_pyy63")
+
+[node name="Plus" type="Sprite2D" parent="BaseOpCard"]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("6_3b2om")
+
+[node name="Multi" type="Sprite2D" parent="BaseOpCard"]
+position = Vector2(1, 0)
+texture = ExtResource("7_vsrr6")
+
+[node name="Div" type="Sprite2D" parent="BaseOpCard"]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("8_lath7")
+
+[node name="Minus" type="Sprite2D" parent="BaseOpCard"]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("9_dp72k")
+
+[node name="HoverEffect" type="Sprite2D" parent="BaseOpCard"]
+visible = false
+texture = ExtResource("4_sj14m")
