@@ -1,6 +1,6 @@
 # Equation Deckbuilder Roguelike (name in progress)
 This project is Group 1's submission for Software Engineering I's final project.
-
+ 
 ## Description:
 This project takes the form of an educational video game. It is meant for the 6th-grade to 8th-grade US schoolchildren demographic,
 and will teach students how to form equations to meet different criteria. The goal of the project is to make a game that
