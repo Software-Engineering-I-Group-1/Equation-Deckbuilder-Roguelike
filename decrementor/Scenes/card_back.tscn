@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp6f81cj1ttt6"]
+[gd_scene load_steps=5 format=3 uid="uid://dh0fbecrhshi6"]
 
 [ext_resource type="Texture2D" uid="uid://dcq3apv87xedo" path="res://Assets/Deck.png" id="1_yvxpl"]
 [ext_resource type="Script" uid="uid://872wi8f1dlgq" path="res://Scenes/hover_sprite.gd" id="3_sj14m"]
