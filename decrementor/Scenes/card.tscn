@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dp6f81cj1ttt6"]
 
-[ext_resource type="Texture2D" uid="uid://ba3ee2d4kxfft" path="res://Assets/Card.png" id="1_0qqmn"]
-[ext_resource type="Texture2D" uid="uid://d4l7o83vb1xpf" path="res://Assets/Card_hover.png" id="2_wf8id"]
+[ext_resource type="Texture2D" uid="uid://ba3ee2d4kxfft" path="res://Assets/Images/Card.png" id="1_0qqmn"]
+[ext_resource type="Texture2D" uid="uid://d4l7o83vb1xpf" path="res://Assets/Images/Card_hover.png" id="2_wf8id"]
 
 [node name="Card" type="Node2D"]
 position = Vector2(-11, -24)

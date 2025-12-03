@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0mj5t0r6gbaw" path="res://Scripts/main_menu.gd" id="1_853f1"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_8saeu"]
-[ext_resource type="Texture2D" uid="uid://bvf61qcceyudm" path="res://Assets/Decrementor.png" id="2_ghw46"]
+[ext_resource type="Texture2D" uid="uid://bvf61qcceyudm" path="res://Assets/Images/Decrementor.png" id="2_ghw46"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_df05h"]
 texture = ExtResource("2_ghw46")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=14 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
 [ext_resource type="Script" uid="uid://watu76vudatv" path="res://Scripts/placeholder_died.gd" id="3_joc8x"]
-[ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/User.png" id="4_slnnj"]
-[ext_resource type="Texture2D" uid="uid://buqg0rddx5koj" path="res://Assets/Enemy.png" id="5_t3or0"]
+[ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/Images/User.png" id="4_slnnj"]
+[ext_resource type="Texture2D" uid="uid://buqg0rddx5koj" path="res://Assets/Images/Enemy.png" id="5_t3or0"]
+[ext_resource type="Script" uid="uid://cn0evpoljb0p4" path="res://Scenes/CombatManager.gd" id="5_ysn8j"]
 [ext_resource type="PackedScene" uid="uid://dp6f81cj1ttt6" path="res://Scenes/card.tscn" id="6_t3or0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q12u6"]
@@ -34,6 +35,23 @@ bg_color = Color(0.6, 0, 0.003921569, 1)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 211.0
+offset_top = 312.0
+offset_right = 729.0
+offset_bottom = 445.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 27.0
+offset_right = 459.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 32
+text = "EQUATION AREA PLACEHOLDER"
+
 [node name="UI (CanvasLayer)" type="CanvasLayer" parent="."]
 
 [node name="UI (Panel)" type="Panel" parent="UI (CanvasLayer)"]
@@ -53,28 +71,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.20784314)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI (CanvasLayer)/UI (Panel)"]
-layout_mode = 1
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 430.5
-offset_bottom = 74.0
-
-[node name="Label" type="Label" parent="UI (CanvasLayer)/UI (Panel)/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 53
-text = "HP: "
-
-[node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/UI (Panel)/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_joc8x")
-theme_override_styles/fill = SubResource("StyleBoxFlat_jghel")
-value = 100.0
-show_percentage = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="UI (CanvasLayer)/UI (Panel)"]
 layout_mode = 1
@@ -234,16 +230,6 @@ theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 53
 text = "<<<"
 
-[node name="Button" type="Button" parent="UI (CanvasLayer)"]
-offset_left = 762.0
-offset_top = 336.0
-offset_right = 904.0
-offset_bottom = 414.0
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 32
-text = "Equate
-"
-
 [node name="Hand (HBoxContainer)" type="HBoxContainer" parent="UI (CanvasLayer)"]
 offset_left = 88.0
 offset_top = 453.0
@@ -292,21 +278,66 @@ position = Vector2(37, 132)
 [node name="Card" parent="UI (CanvasLayer)/Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
 position = Vector2(32, 128)
 
-[node name="User" type="Node2D" parent="."]
+[node name="CombatManager (Node)" type="Node" parent="UI (CanvasLayer)"]
+script = ExtResource("5_ysn8j")
 
-[node name="Sprite2D" type="Sprite2D" parent="User"]
+[node name="Label" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)"]
+offset_left = 465.0
+offset_top = 2.0
+offset_right = 683.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 45
+text = "Your Turn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack_Button" type="Button" parent="UI (CanvasLayer)/CombatManager (Node)"]
+offset_left = 762.0
+offset_top = 336.0
+offset_right = 904.0
+offset_bottom = 414.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 32
+text = "Equate
+"
+
+[node name="Player_HP" type="HBoxContainer" parent="UI (CanvasLayer)/CombatManager (Node)"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 430.5
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Player_HP"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "HP: "
+
+[node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Player_HP"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_joc8x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jghel")
+value = 100.0
+show_percentage = false
+
+[node name="User" type="Node2D" parent="UI (CanvasLayer)/CombatManager (Node)"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI (CanvasLayer)/CombatManager (Node)/User"]
 position = Vector2(265, 197)
 scale = Vector2(3, 3)
 texture = ExtResource("4_slnnj")
 
-[node name="Enemy" type="Node2D" parent="."]
+[node name="Enemy" type="Node2D" parent="UI (CanvasLayer)/CombatManager (Node)"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+[node name="Sprite2D" type="Sprite2D" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 position = Vector2(957, 196.00002)
 scale = Vector2(3, 3)
 texture = ExtResource("5_t3or0")
 
-[node name="ProgressBar" type="ProgressBar" parent="Enemy"]
+[node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 clip_contents = true
 offset_left = 823.0
 offset_top = 278.0
@@ -317,22 +348,5 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_t3or0")
 step = 1.0
 value = 100.0
 rounded = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 211.0
-offset_top = 312.0
-offset_right = 729.0
-offset_bottom = 445.0
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 27.0
-offset_right = 459.0
-offset_bottom = 84.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 32
-text = "EQUATION AREA PLACEHOLDER"
 
 [connection signal="pressed" from="UI (CanvasLayer)/UI (Panel)/Died_placeholder" to="UI (CanvasLayer)/UI (Panel)/Died_placeholder" method="_on_pressed"]

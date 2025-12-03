@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvf61qcceyudm"
-path="res://.godot/imported/Decrementor.png-655ddb3b0120a64187c28508741fd109.ctex"
+uid="uid://bo8eckos4du3f"
+path="res://.godot/imported/User.png-f913f3536f029722a54b75236231c6a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Decrementor.png"
-dest_files=["res://.godot/imported/Decrementor.png-655ddb3b0120a64187c28508741fd109.ctex"]
+source_file="res://Assets/Images/User.png"
+dest_files=["res://.godot/imported/User.png-f913f3536f029722a54b75236231c6a9.ctex"]
 
 [params]
 
