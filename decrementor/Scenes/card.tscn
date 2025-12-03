@@ -1,5 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dp6f81cj1ttt6"]
 
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cj3sm48o8mioe" path="res://Assets/Base Card.png" id="1_mm04k"]
 [ext_resource type="Texture2D" uid="uid://cfytbfp1pr7em" path="res://Assets/Base Card Number .png" id="2_yvxpl"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="3_uf1hq"]
@@ -16,9 +17,16 @@ font_size = 25
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
+=======
+[ext_resource type="Texture2D" uid="uid://ba3ee2d4kxfft" path="res://Assets/Card.png" id="1_0qqmn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qqmn"]
+size = Vector2(97, 144)
+>>>>>>> a085b951423064ee3fbcd482fe993a2becac3152
 
 [node name="Card" type="Node2D"]
 
+<<<<<<< HEAD
 [node name="BaseNumCard" type="Sprite2D" parent="."]
 position = Vector2(-77, -6)
 texture = ExtResource("1_mm04k")
@@ -71,3 +79,15 @@ texture = ExtResource("9_dp72k")
 [node name="HoverEffect" type="Sprite2D" parent="BaseOpCard"]
 visible = false
 texture = ExtResource("4_sj14m")
+=======
+[node name="TextureButton" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_0qqmn")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_0qqmn")
+>>>>>>> a085b951423064ee3fbcd482fe993a2becac3152
