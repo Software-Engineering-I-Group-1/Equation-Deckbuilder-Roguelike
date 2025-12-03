@@ -1,0 +1,24 @@
+extends Control
+
+var random_number = randi() % 4
+
+@onready var addition = $Area2D/CollisionShape2D/BaseOpCard/Plus
+@onready var subtraction = $Area2D/CollisionShape2D/BaseOpCard/Minus
+@onready var multiply = $Area2D/CollisionShape2D/BaseOpCard/Multi
+@onready var division = $Area2D/CollisionShape2D/BaseOpCard/Div
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	print(random_number)
+	if (random_number == 0):
+		addition.visible = true
+	if (random_number == 1):
+		subtraction.visible = true
+	if (random_number == 2):
+		multiply.visible = true
+	if (random_number == 3):
+		division.visible = true
+	#label.text = "/"
+	#label.text = str(random_number)
+	#label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	#

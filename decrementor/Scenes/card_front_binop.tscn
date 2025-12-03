@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bobspb6dd8x0s"]
+[gd_scene load_steps=12 format=3 uid="uid://bobspb6dd8x0s"]
 
 [ext_resource type="Texture2D" uid="uid://cc22aac0v3c5o" path="res://Assets/Base Card.png" id="1_0qrk5"]
+[ext_resource type="Script" uid="uid://dtb05rcrw37y0" path="res://Scenes/card_front_binop.gd" id="1_euadh"]
 [ext_resource type="Texture2D" uid="uid://ckx82dd22o0h" path="res://Assets/Hovered.png" id="4_ly81g"]
 [ext_resource type="Script" uid="uid://872wi8f1dlgq" path="res://Scenes/hover_sprite.gd" id="5_ih2rx"]
 [ext_resource type="Texture2D" uid="uid://6347ox8dhx46" path="res://Assets/Base Operator-export.png" id="6_e1q66"]
@@ -18,6 +19,7 @@ load_path = "res://.godot/imported/Hovered.png-2466167cdfadff2f06151dd7c985a20e.
 [node name="Card_front_binop" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_euadh")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -37,6 +39,7 @@ position = Vector2(1, 0)
 texture = ExtResource("7_43php")
 
 [node name="Multi" type="Sprite2D" parent="Area2D/CollisionShape2D/BaseOpCard"]
+visible = false
 position = Vector2(1, 0)
 texture = ExtResource("8_ci0c5")
 
