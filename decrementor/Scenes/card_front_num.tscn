@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1du86ld34le1"]
+[gd_scene load_steps=10 format=3 uid="uid://d1du86ld34le1"]
 
+[ext_resource type="Script" uid="uid://bmpsnimjx3c6e" path="res://Scenes/card_front_num.gd" id="1_2aokk"]
 [ext_resource type="Texture2D" uid="uid://ckx82dd22o0h" path="res://Assets/Hovered.png" id="2_gkct0"]
 [ext_resource type="Script" uid="uid://872wi8f1dlgq" path="res://Scenes/hover_sprite.gd" id="3_1s7ae"]
 [ext_resource type="Texture2D" uid="uid://cc22aac0v3c5o" path="res://Assets/Base Card.png" id="4_wk1b5"]
@@ -22,6 +23,7 @@ load_path = "res://.godot/imported/Hovered.png-2466167cdfadff2f06151dd7c985a20e.
 [node name="Card_front_num" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_2aokk")
 
 [node name="Area2D" type="Area2D" parent="."]
 
