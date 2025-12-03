@@ -15,7 +15,9 @@ size = Vector2(64, 93)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uf1hq"]
 load_path = "res://.godot/imported/Hovered.png-2466167cdfadff2f06151dd7c985a20e.ctex"
 
-[node name="Card_front_num" type="Area2D"]
+[node name="Card_front_binop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)

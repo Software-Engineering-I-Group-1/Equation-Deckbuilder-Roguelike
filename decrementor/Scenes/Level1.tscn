@@ -117,6 +117,56 @@ theme_override_font_sizes/font_size = 12
 text = "U Died (placeholder cuz no functionality)"
 script = ExtResource("3_joc8x")
 
+[node name="Hand" type="Control" parent="UI (CanvasLayer)"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI (CanvasLayer)/Hand"]
+layout_mode = 1
+offset_left = 67.0
+offset_top = 451.0
+offset_right = 875.0
+offset_bottom = 642.0
+theme_override_constants/separation = 125
+alignment = 1
+
+[node name="Holder" type="Sprite2D" parent="UI (CanvasLayer)/Hand/HBoxContainer"]
+position = Vector2(403, 92)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bdlbp")
+
+[node name="Card7" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("4_kylad")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card8" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("5_6ll4n")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card4" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("5_6ll4n")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card5" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("5_6ll4n")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card6" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("4_kylad")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card9" parent="UI (CanvasLayer)/Hand/HBoxContainer" instance=ExtResource("4_kylad")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [node name="Pause Menu" type="Control" parent="UI (CanvasLayer)"]
 process_mode = 3
 visible = false
@@ -233,40 +283,11 @@ theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 53
 text = "<<<"
 
-[node name="Hand (HBoxContainer)" type="HBoxContainer" parent="UI (CanvasLayer)"]
-offset_left = 88.0
-offset_top = 453.0
-offset_right = 896.0
-offset_bottom = 644.0
-
-[node name="Hand" type="Sprite2D" parent="UI (CanvasLayer)/Hand (HBoxContainer)"]
-position = Vector2(403, 92)
-scale = Vector2(2, 2)
-texture = ExtResource("4_bdlbp")
-
-[node name="Card7" parent="UI (CanvasLayer)/Hand (HBoxContainer)" instance=ExtResource("4_kylad")]
-position = Vector2(472, 97)
-
-[node name="Card8" parent="UI (CanvasLayer)/Hand (HBoxContainer)" instance=ExtResource("5_6ll4n")]
-position = Vector2(607, 97)
-
-[node name="Card4" parent="UI (CanvasLayer)/Hand (HBoxContainer)" instance=ExtResource("5_6ll4n")]
-position = Vector2(66, 96)
-
-[node name="Card5" parent="UI (CanvasLayer)/Hand (HBoxContainer)" instance=ExtResource("5_6ll4n")]
-position = Vector2(201, 96)
-
-[node name="Card6" parent="UI (CanvasLayer)/Hand (HBoxContainer)" instance=ExtResource("4_kylad")]
-position = Vector2(336, 96)
-
-[node name="Card9" parent="UI (CanvasLayer)/Hand (HBoxContainer)" instance=ExtResource("4_kylad")]
-position = Vector2(741, 97)
-
 [node name="Deck (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)"]
-offset_left = 1033.0
-offset_top = 369.0
-offset_right = 1086.0
-offset_bottom = 409.0
+offset_left = 1036.0
+offset_top = 468.0
+offset_right = 1089.0
+offset_bottom = 508.0
 
 [node name="Label" type="Label" parent="UI (CanvasLayer)/Deck (VBoxContainer)"]
 layout_mode = 2
@@ -277,14 +298,13 @@ horizontal_alignment = 1
 
 [node name="Card3" parent="UI (CanvasLayer)/Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
 modulate = Color(0.32172796, 0.32172796, 0.32172796, 1)
-position = Vector2(41, 136)
+position = Vector2(5, 6)
 
 [node name="Card2" parent="UI (CanvasLayer)/Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
 modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
-position = Vector2(37, 132)
+position = Vector2(3, 3)
 
 [node name="Card" parent="UI (CanvasLayer)/Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
-position = Vector2(32, 128)
 
 [node name="CombatManager (Node)" type="Node" parent="UI (CanvasLayer)"]
 script = ExtResource("5_ysn8j")
