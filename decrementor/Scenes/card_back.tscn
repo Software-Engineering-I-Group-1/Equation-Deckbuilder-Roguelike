@@ -1,27 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp6f81cj1ttt6"]
+[gd_scene load_steps=4 format=3 uid="uid://c21emingqwtre"]
 
 [ext_resource type="Texture2D" uid="uid://dcq3apv87xedo" path="res://Assets/Deck.png" id="1_yvxpl"]
-[ext_resource type="Script" uid="uid://872wi8f1dlgq" path="res://Scenes/hover_sprite.gd" id="3_sj14m"]
-[ext_resource type="Texture2D" uid="uid://ckx82dd22o0h" path="res://Assets/Hovered.png" id="4_sj14m"]
+[ext_resource type="Texture2D" uid="uid://crpdkoaxmqg" path="res://Assets/hovered deck.png" id="2_hovered"]
+[ext_resource type="Script" path="res://Scenes/card_back.gd" id="3_script"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvxpl"]
-size = Vector2(64, 93)
+[node name="Card" type="TextureButton"]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = 48.0
+texture_normal = ExtResource("1_yvxpl")
+texture_pressed = ExtResource("1_yvxpl")
+texture_hover = ExtResource("2_hovered")
+flip_v = true
+script = ExtResource("3_script")
 
-[node name="Card" type="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_yvxpl")
-
-[node name="BaseSprite" type="Sprite2D" parent="CollisionShape2D"]
-texture = ExtResource("1_yvxpl")
-
-[node name="HoverSprite" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.72156864)
-scale = Vector2(2, 2)
-texture = ExtResource("4_sj14m")
-script = ExtResource("3_sj14m")
-
-[connection signal="mouse_entered" from="." to="HoverSprite" method="_on_card_mouse_entered"]
-[connection signal="mouse_exited" from="." to="HoverSprite" method="_on_card_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

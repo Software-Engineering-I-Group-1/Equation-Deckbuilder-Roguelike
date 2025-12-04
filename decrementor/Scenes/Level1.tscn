@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=19 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dq2q8j8fww1ky" path="res://Scenes/equation_area.tscn" id="3_rpty4"]
 [ext_resource type="Script" uid="uid://cb8yi27uj3rbi" path="res://Scenes/card_manager.gd" id="4_6jj8j"]
 [ext_resource type="Script" uid="uid://4dxdcqq4odg0" path="res://Scenes/equation_area.gd" id="4_06um6"]
+[ext_resource type="Texture2D" uid="uid://dcq3apv87xedo" path="res://Assets/Deck.png" id="4_rpty4"]
 [ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/Images/User.png" id="4_slnnj"]
+[ext_resource type="Texture2D" uid="uid://crpdkoaxmqg" path="res://Assets/hovered deck.png" id="5_rpty4"]
 [ext_resource type="Texture2D" uid="uid://buqg0rddx5koj" path="res://Assets/Images/Enemy.png" id="5_t3or0"]
 [ext_resource type="Script" uid="uid://cn0evpoljb0p4" path="res://Scenes/CombatManager.gd" id="5_ysn8j"]
-[ext_resource type="PackedScene" uid="uid://dp6f81cj1ttt6" path="res://Scenes/card_back.tscn" id="6_t3or0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q12u6"]
 
@@ -219,10 +220,10 @@ theme_override_font_sizes/font_size = 53
 text = "<<<"
 
 [node name="Deck (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)"]
-offset_left = 1036.0
-offset_top = 468.0
-offset_right = 1089.0
-offset_bottom = 508.0
+offset_left = 1008.0
+offset_top = 474.0
+offset_right = 1072.0
+offset_bottom = 605.0
 
 [node name="Label" type="Label" parent="UI (CanvasLayer)/Deck (VBoxContainer)"]
 layout_mode = 2
@@ -231,15 +232,11 @@ theme_override_font_sizes/font_size = 30
 text = "Deck"
 horizontal_alignment = 1
 
-[node name="Card3" parent="UI (CanvasLayer)/Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
-modulate = Color(0.32172796, 0.32172796, 0.32172796, 1)
-position = Vector2(5, 6)
-
-[node name="Card2" parent="UI (CanvasLayer)/Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
-modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
-position = Vector2(3, 3)
-
-[node name="Card" parent="UI (CanvasLayer)/Deck (VBoxContainer)" instance=ExtResource("6_t3or0")]
+[node name="Deck" type="TextureButton" parent="UI (CanvasLayer)/Deck (VBoxContainer)"]
+layout_mode = 2
+texture_normal = ExtResource("4_rpty4")
+texture_pressed = ExtResource("5_rpty4")
+texture_hover = ExtResource("5_rpty4")
 
 [node name="CombatManager (Node)" type="Node" parent="UI (CanvasLayer)"]
 script = ExtResource("5_ysn8j")
@@ -323,3 +320,4 @@ position = Vector2(-1, -1)
 script = ExtResource("4_6jj8j")
 
 [connection signal="pressed" from="UI (CanvasLayer)/UI (Panel)/Died_placeholder" to="UI (CanvasLayer)/UI (Panel)/Died_placeholder" method="_on_pressed"]
+[connection signal="pressed" from="UI (CanvasLayer)/Deck (VBoxContainer)/Deck" to="Hand Area" method="_on_deck_pressed"]
