@@ -79,8 +79,8 @@ func evaluate_equation() -> Variant:
 	
 	if i != cards.size():
 		return null
-	
-	return max(result, 0)
+	print(result)
+	return result
 
 func extract_card_value(card: Node) -> Variant:
 	var label = card.get_node_or_null("Area2D/CollisionShape2D/BaseNumCard/Label")
@@ -124,7 +124,8 @@ func clear_equation_area() -> void:
 	var container = equation_area.get_child(EQUATION_AREA_CARD_CONTAINER_INDEX)
 	for card in container.get_children():
 		if card.get_parent() == container:
-			card.queue_free()
+			Global.discardPile.append(card)
+			container.remove_child(card)
 
 func player_choose_attack() -> void:
 	if state != CombatState.PlayerTurn: 
@@ -139,6 +140,7 @@ func player_choose_attack() -> void:
 		clear_equation_area()
 		transition(CombatState.PlayerTurn)
 	else:
+		var damage = max(result, 0)
 		enemy_hp_bar.value -= result
 		await get_tree().create_timer(ATTACK_DELAY).timeout
 		clear_equation_area()

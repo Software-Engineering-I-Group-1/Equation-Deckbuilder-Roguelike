@@ -53,13 +53,18 @@ func draw_card() -> Control:
 	if card_container.get_child_count() >= MAX_HAND_SIZE:
 		return null
 	if deck.size() == 0:
-		return null
+		resuffleDiscardPileIntoDeck()
 	
 	var idx = randi() % deck.size()
 	var card = deck[idx]
 	deck.remove_at(idx)
 	card_container.add_child(card)
 	return card
+
+func resuffleDiscardPileIntoDeck():
+	print("refulling discard into deck")
+	for card in Global.discardPile:
+		deck.append(card)
 
 
 func _on_deck_pressed() -> void:
