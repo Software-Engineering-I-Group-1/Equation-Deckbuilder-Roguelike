@@ -8,7 +8,7 @@ var card_being_dragged
 func _process(delta: float) -> void:
 	if card_being_dragged:
 		var mouse_pos = get_global_mouse_position()
-		card_being_dragged.position = mouse_pos
+		card_being_dragged.global_position = mouse_pos
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -18,15 +18,23 @@ func _input(event):
 				card_being_dragged = card
 		else:
 			if card_being_dragged:
+				var parent_of_card_being_dragged = card_being_dragged.get_parent()
 				var equation_area_found = raycast_check_for_equation_area()
+				var hand_area_found = raycast_check_for_hand_area()
 				if equation_area_found:
 					#set position of card in equation area
-					card_being_dragged.reparent(equation_area_found.get_child(2))
-				
-				var hand_area_found = raycast_check_for_hand_area()
-				if hand_area_found:
+					parent_of_card_being_dragged.remove_child(card_being_dragged)
+					equation_area_found.get_child(2).add_child(card_being_dragged)
+					
+				elif hand_area_found:
 					#set position of card in equation area
-					card_being_dragged.reparent(hand_area_found.get_child(2))
+					parent_of_card_being_dragged.remove_child(card_being_dragged)
+					hand_area_found.get_child(2).add_child(card_being_dragged)
+					
+				else:
+					parent_of_card_being_dragged.remove_child(card_being_dragged)
+					parent_of_card_being_dragged.add_child(card_being_dragged)
+
 			card_being_dragged = null
 
 # function checks card collision with mouse
