@@ -37,7 +37,7 @@ shape = SubResource("RectangleShape2D_ysn8j")
 
 [node name="CardContainer" type="HBoxContainer" parent="."]
 offset_left = 25.0
-offset_top = 302.0
+offset_top = 379.0
 offset_right = 951.0
 offset_bottom = 462.0
 theme_override_constants/separation = 125
