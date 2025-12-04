@@ -25,7 +25,7 @@ texture = ExtResource("2_emn53")
 
 [node name="CardContainer" type="HBoxContainer" parent="."]
 offset_left = 22.0
-offset_top = 467.0
+offset_top = 550.0
 offset_right = 968.0
 offset_bottom = 632.0
 theme_override_constants/separation = 125
