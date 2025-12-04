@@ -24,14 +24,9 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_emn53")
 
 [node name="CardContainer" type="HBoxContainer" parent="."]
-anchors_preset = -1
-anchor_left = -0.027
-anchor_top = -0.75900006
-anchor_right = -0.027
-anchor_bottom = -0.75900006
-offset_left = 20.0
-offset_top = 464.0
-offset_right = 950.0
-offset_bottom = 654.0
+offset_left = 22.0
+offset_top = 467.0
+offset_right = 968.0
+offset_bottom = 632.0
 theme_override_constants/separation = 125
 alignment = 1
