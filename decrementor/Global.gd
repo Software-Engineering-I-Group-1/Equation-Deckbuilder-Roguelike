@@ -3,6 +3,7 @@ extends Node
 
 var playerName : String
 var player_list = []
+var deck = []
 var discardPile = []
 
 var score = 0

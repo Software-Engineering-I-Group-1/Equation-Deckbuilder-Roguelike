@@ -178,3 +178,6 @@ func player_alive() -> bool:
 
 func end_battle(victory: bool) -> void:
 	return
+
+func add_card():
+	print("adding card")

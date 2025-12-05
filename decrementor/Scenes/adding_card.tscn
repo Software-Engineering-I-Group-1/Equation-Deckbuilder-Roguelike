@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://braw558cc5aki"]
+
+[ext_resource type="PackedScene" uid="uid://bobspb6dd8x0s" path="res://Scenes/card_front_binop.tscn" id="1_8yqir"]
+[ext_resource type="Texture2D" uid="uid://bvf61qcceyudm" path="res://Assets/Images/Decrementor.png" id="1_du7oc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ufjy"]
+texture = ExtResource("1_du7oc")
+
+[node name="AddingCard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Image (Panel)" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1ufjy")
+
+[node name="CardContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 337.0
+offset_right = 576.5
+offset_bottom = 379.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 175
+alignment = 1
+
+[node name="Card_front_binop" parent="CardContainer" instance=ExtResource("1_8yqir")]
+layout_mode = 2
+
+[node name="Card_front_binop2" parent="CardContainer" instance=ExtResource("1_8yqir")]
+layout_mode = 2
+
+[node name="Card_front_binop3" parent="CardContainer" instance=ExtResource("1_8yqir")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 1152.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 50
+text = "Pick a Card to Add to Your Deck"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 582.0
+offset_right = 1148.0
+offset_bottom = 645.0
+theme_override_font_sizes/font_size = 40
+text = "SKIP"

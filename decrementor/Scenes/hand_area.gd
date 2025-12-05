@@ -5,7 +5,6 @@ const CARD_BINOP_SCENE = preload("res://Scenes/card_front_binop.tscn")
 
 const MAX_HAND_SIZE = 7
 
-var deck = []
 var card_container: Node
 
 func _ready() -> void:
@@ -14,29 +13,29 @@ func _ready() -> void:
 	create_deck()
 
 func create_deck() -> void:
-	deck.clear()
+	Global.deck.clear()
 	
 	for num in range(1, 9):
 		var card = CARD_NUM_SCENE.instantiate()
 		var label = card.get_node("Area2D/CollisionShape2D/BaseNumCard/Label")
 		label.text = str(num)
-		deck.append(card)
+		Global.deck.append(card)
 
 	var plus_card = CARD_BINOP_SCENE.instantiate()
 	set_operator_visible(plus_card, "Plus")
-	deck.append(plus_card)
+	Global.deck.append(plus_card)
 
 	var minus_card = CARD_BINOP_SCENE.instantiate()
 	set_operator_visible(minus_card, "Minus")
-	deck.append(minus_card)
+	Global.deck.append(minus_card)
 
 	var multi_card = CARD_BINOP_SCENE.instantiate()
 	set_operator_visible(multi_card, "Multi")
-	deck.append(multi_card)
+	Global.deck.append(multi_card)
 
 	var div_card = CARD_BINOP_SCENE.instantiate()
 	set_operator_visible(div_card, "Div")
-	deck.append(div_card)
+	Global.deck.append(div_card)
 
 func set_operator_visible(card: Control, operator_name: String) -> void:
 	var base_op_card = card.get_node("Area2D/CollisionShape2D/BaseOpCard")
@@ -52,19 +51,19 @@ func set_operator_visible(card: Control, operator_name: String) -> void:
 func draw_card() -> Control:
 	if card_container.get_child_count() >= MAX_HAND_SIZE:
 		return null
-	if deck.size() == 0:
+	if Global.deck.size() == 0:
 		resuffleDiscardPileIntoDeck()
 	
-	var idx = randi() % deck.size()
-	var card = deck[idx]
-	deck.remove_at(idx)
+	var idx = randi() % Global.deck.size()
+	var card = Global.deck[idx]
+	Global.deck.remove_at(idx)
 	card_container.add_child(card)
 	return card
 
 func resuffleDiscardPileIntoDeck():
 	print("refulling discard into deck")
 	for card in Global.discardPile:
-		deck.append(card)
+		Global.deck.append(card)
 
 
 func _on_deck_pressed() -> void:
