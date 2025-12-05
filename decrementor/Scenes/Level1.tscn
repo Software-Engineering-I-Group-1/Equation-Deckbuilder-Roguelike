@@ -241,6 +241,30 @@ texture_hover = ExtResource("5_rpty4")
 [node name="CombatManager (Node)" type="Node" parent="UI (CanvasLayer)"]
 script = ExtResource("5_ysn8j")
 
+[node name="Player_Score" type="HBoxContainer" parent="UI (CanvasLayer)/CombatManager (Node)"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -338.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="Text" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Player_Score"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "SCORE:"
+
+[node name="Score" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Player_Score"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "XXXXXXXX"
+
 [node name="Label" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)"]
 offset_left = 465.0
 offset_top = 2.0
