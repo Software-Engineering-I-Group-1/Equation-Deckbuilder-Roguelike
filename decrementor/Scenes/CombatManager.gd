@@ -164,6 +164,7 @@ func player_choose_attack() -> void:
 	state = CombatState.Busy
 	
 	var result = evaluate_equation()
+	check_criterias_of_result(result)
 	
 	if result == null:
 		turn_label.text = "I messed up!"
@@ -176,6 +177,13 @@ func player_choose_attack() -> void:
 		await get_tree().create_timer(ATTACK_DELAY).timeout
 		clear_equation_area()
 		transition(CombatState.PlayerTurn)
+	Global.damage_multiplier = 1
+
+func check_criterias_of_result(result: Variant):
+	if result == null:
+		return
+	#placeholder for damager multipler stuff
+	Global.damage_multiplier *= 1
 
 func start_enemy_turn() -> void:
 	state = CombatState.EnemyTurn
@@ -212,6 +220,6 @@ func end_battle(victory: bool) -> void:
 		print("Got a victory")
 		GameState.player_score += 1000
 		score.text = str(GameState.player_score).pad_zeros(8)
-		get_tree().change_scene_to_file("res://Scenes/Defeated_Screen.tscn") # Change to reload current scene with old stats later
+		get_tree().change_scene_to_file("res://Scenes/adding_card.tscn") # Change to reload current scene with old stats later
 	elif !victory:
 		get_tree().change_scene_to_file("res://Scenes/Defeated_Screen.tscn")

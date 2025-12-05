@@ -7,7 +7,7 @@ var deck = []
 var discardPile = []
 
 var score = 0
-var damage_multiplier = 1
+var damage_multiplier = 10
 
 func _ready() -> void:
 	SilentWolf.configure({

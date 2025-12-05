@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://braw558cc5aki"]
+[gd_scene load_steps=6 format=3 uid="uid://braw558cc5aki"]
 
+[ext_resource type="PackedScene" uid="uid://bobspb6dd8x0s" path="res://Scenes/card_front_binop.tscn" id="1_8yqir"]
 [ext_resource type="Script" uid="uid://mqkewlp6k7op" path="res://Scenes/adding_card.gd" id="1_b0prm"]
 [ext_resource type="Texture2D" uid="uid://bvf61qcceyudm" path="res://Assets/Images/Decrementor.png" id="1_du7oc"]
 [ext_resource type="Script" uid="uid://ft72e6y4ttop" path="res://Scenes/pick_card.gd" id="2_1ufjy"]
@@ -35,6 +36,15 @@ mouse_filter = 2
 theme_override_constants/separation = 175
 alignment = 1
 script = ExtResource("2_1ufjy")
+
+[node name="Card_front_binop" parent="CardContainer" instance=ExtResource("1_8yqir")]
+layout_mode = 2
+
+[node name="Card_front_binop2" parent="CardContainer" instance=ExtResource("1_8yqir")]
+layout_mode = 2
+
+[node name="Card_front_binop3" parent="CardContainer" instance=ExtResource("1_8yqir")]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
