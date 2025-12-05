@@ -1,6 +1,6 @@
 extends Node2D
 
-var score = 20
+var score = GameState.player_score
 
 @onready var score_label: Label = $Score/Label2
 
