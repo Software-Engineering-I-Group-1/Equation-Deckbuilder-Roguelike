@@ -190,6 +190,9 @@ func player_alive() -> bool:
 
 func end_battle(victory: bool) -> void:
 	if victory:
+		print("Got a victory")
+		GameState.player_score += 1000
+		score.text = str(GameState.player_score).pad_zeros(8)
 		get_tree().change_scene_to_file("res://Scenes/Defeated_Screen.tscn") # Change to reload current scene with old stats later
 	elif !victory:
 		get_tree().change_scene_to_file("res://Scenes/Defeated_Screen.tscn")
