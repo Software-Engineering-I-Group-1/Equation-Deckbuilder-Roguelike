@@ -149,7 +149,7 @@ func player_choose_attack() -> void:
 		transition(CombatState.PlayerTurn)
 	else:
 		var damage = max(result, 0)
-		enemy_hp_bar.value -= result
+		enemy_hp_bar.value -= result * Global.damage_multiplier
 		await get_tree().create_timer(ATTACK_DELAY).timeout
 		clear_equation_area()
 		transition(CombatState.PlayerTurn)
