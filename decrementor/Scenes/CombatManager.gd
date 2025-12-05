@@ -24,6 +24,9 @@ var state = CombatState.PlayerTurn
 @onready var hp_bar = $Player_HP/ProgressBar
 @onready var enemy_hp_bar = $Enemy/ProgressBar
 @onready var score = $Player_Score/Score
+@onready var requirement = $Enemy/Requirement
+
+var random_number = randi() % 4
 
 var hand_area: Node
 var equation_area: Node
@@ -43,6 +46,22 @@ func _ready() -> void:
 	
 	hp_bar.value = GameState.player_health
 	score.text = str(GameState.player_score).pad_zeros(8)
+
+	match random_number:
+		0: 
+			# Even num
+			requirement.text = "Is Even"
+		1: 
+			# Odd num
+			requirement.text = "Is Odd"
+		2: 
+			# Greater than
+			requirement.text = "Greater than"
+		3: 
+			# Less than
+			requirement.text = "Less than"
+			
+
 
 	start_player_turn()
 

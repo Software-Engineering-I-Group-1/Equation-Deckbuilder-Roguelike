@@ -333,6 +333,12 @@ step = 1.0
 value = 100.0
 rounded = true
 
+[node name="Requirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
+offset_left = 938.0
+offset_top = 106.0
+offset_right = 978.0
+offset_bottom = 129.0
+
 [node name="Equation Area" parent="." instance=ExtResource("3_rpty4")]
 position = Vector2(-3, -6)
 script = ExtResource("4_06um6")
