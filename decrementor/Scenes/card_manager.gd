@@ -25,7 +25,6 @@ func _input(event):
 					#set position of card in equation area
 					parent_of_card_being_dragged.remove_child(card_being_dragged)
 					equation_area_found.get_child(2).add_child(card_being_dragged)
-					
 				elif hand_area_found:
 					#set position of card in equation area
 					parent_of_card_being_dragged.remove_child(card_being_dragged)

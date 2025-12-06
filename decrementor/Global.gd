@@ -5,6 +5,7 @@ var playerName : String
 var player_list = []
 var deck = []
 var discardPile = []
+var permanent_cards = []
 var deck_initialized: bool = false
 var score = 0
 var damage_multiplier = 10
@@ -53,7 +54,16 @@ func create_deck() -> void:
 	set_operator_visible(div_card, "Div")
 	deck.append(div_card)
 	
+	for card in permanent_cards:
+		if is_instance_valid(card) and not card.is_queued_for_deletion():
+			deck.append(card)
+	
 	deck_initialized = true
+	
+	var deck_contents = []
+	for card in deck:
+		deck_contents.append(get_card_name(card))
+	print("Deck created with ", deck.size(), " cards (including ", permanent_cards.size(), " permanent cards): ", deck_contents)
 
 func set_operator_visible(card: Control, operator_name: String) -> void:
 	card.already_initialized = true
@@ -88,6 +98,11 @@ func reshuffle_discard_into_deck() -> void:
 			print("Skipping invalid card during reshuffle")
 	
 	discardPile.clear()
+	
+	if valid_cards.size() == 0:
+		print("No valid cards to reshuffle, creating new deck")
+		create_deck()
+		return
 	
 	for card in valid_cards:
 		deck.append(card)
@@ -136,7 +151,29 @@ func reset_round(hand_container: Node = null, equation_container: Node = null) -
 	if equation_container:
 		return_equation_to_deck(equation_container)
 	
-	print("round reset.size  ", deck.size())
+	print("Round reset complete. Deck size: ", deck.size())
+
+func add_permanent_card(card: Control) -> void:
+	if is_instance_valid(card) and not card.is_queued_for_deletion():
+		var parent = card.get_parent()
+		if parent:
+			parent.remove_child(card)
+		
+		card.hide()
+		permanent_cards.append(card)
+		deck.append(card)
+		
+		var permanent_contents = []
+		for perm_card in permanent_cards:
+			permanent_contents.append(get_card_name(perm_card))
+		
+		var deck_contents = []
+		for deck_card in deck:
+			deck_contents.append(get_card_name(deck_card))
+		
+		print("Permanent card added: ", get_card_name(card))
+		print("Total permanent cards (", permanent_cards.size(), "): ", permanent_contents)
+		print("Current deck size (", deck.size(), "): ", deck_contents)
 
 func get_card_name(card: Control) -> String:
 	if not is_instance_valid(card):

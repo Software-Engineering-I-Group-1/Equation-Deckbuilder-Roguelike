@@ -60,13 +60,8 @@ func _input(event):
 		if event.pressed:
 			var card = raycast_check_for_card()
 			if card:
-				if is_instance_valid(card) and not card.is_queued_for_deletion():
-					if card.get_parent():
-						card.get_parent().remove_child(card)
-					
-					Global.deck.append(card)
-					print("current deck size: ", Global.deck.size())
-					get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
+				Global.add_permanent_card(card)
+				get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
 
 func raycast_check_for_card():
 	var space_state = get_world_2d().direct_space_state
