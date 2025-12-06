@@ -234,10 +234,11 @@ theme_override_font_sizes/font_size = 53
 text = "<<<"
 
 [node name="Deck (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)"]
-offset_left = 1008.0
-offset_top = 474.0
-offset_right = 1072.0
-offset_bottom = 605.0
+offset_left = 1003.0
+offset_top = 370.0
+offset_right = 1067.0
+offset_bottom = 501.0
+scale = Vector2(2, 2)
 
 [node name="Label" type="Label" parent="UI (CanvasLayer)/Deck (VBoxContainer)"]
 layout_mode = 2
