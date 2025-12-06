@@ -173,9 +173,9 @@ func apply_operator(a: int, op: String, b: int) -> Variant:
 func clear_equation_area() -> void:
 	var container = equation_area.get_child(EQUATION_AREA_CARD_CONTAINER_INDEX)
 	for card in container.get_children():
-		if card.get_parent() == container:
-			Global.discardPile.append(card)
+		if card.get_parent() == container and is_instance_valid(card):
 			container.remove_child(card)
+			Global.discardPile.append(card)
 
 func player_choose_attack() -> void:
 	if state != CombatState.PlayerTurn: 
@@ -243,6 +243,8 @@ func end_battle(victory: bool) -> void:
 		GameState.current_level += 1
 		score.text = str(GameState.player_score).pad_zeros(8)
 		get_tree().change_scene_to_file("res://Scenes/adding_card.tscn") # Change to reload current scene with old stats later
+		Global.reshuffle_discard_into_deck()
+		get_tree().change_scene_to_file("res://Scenes/adding_card.tscn")
 	elif !victory:
 		get_tree().change_scene_to_file("res://Scenes/Defeated_Screen.tscn")
 

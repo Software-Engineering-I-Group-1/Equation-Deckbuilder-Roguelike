@@ -10,7 +10,7 @@ func _ready():
 
 	
 func _on_play_pressed():
-	# Changes scene to main scene:
+	Global.deck_initialized = false
 	get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
 	
 func _on_settings_pressed():

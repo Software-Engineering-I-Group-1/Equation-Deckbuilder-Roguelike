@@ -34,4 +34,3 @@ func _ready() -> void:
 		multiply.visible = false
 		division.visible = true
 		value = '/'
-	print(value) 
