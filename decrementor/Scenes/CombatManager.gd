@@ -107,6 +107,9 @@ func evaluate_equation() -> Variant:
 			else:
 				array_cards.append(get_operator_type(cards[i]))
 	
+	if extract_card_value(cards[cards.size()-1]) == null:
+		return null
+	
 #	equation stuff with pemdas
 #	do multiplication and division first
 	var i = 1
