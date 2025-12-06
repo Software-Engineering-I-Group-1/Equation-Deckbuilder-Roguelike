@@ -173,7 +173,6 @@ func add_permanent_card(card: Control) -> void:
 		
 		print("Permanent card added: ", get_card_name(card))
 		print("Total permanent cards (", permanent_cards.size(), "): ", permanent_contents)
-		print("Current deck size (", deck.size(), "): ", deck_contents)
 
 func get_card_name(card: Control) -> String:
 	if not is_instance_valid(card):

@@ -1,8 +1,6 @@
 extends Node2D
-
 const MAX_HAND_SIZE = 7
 const OPERATOR_GUARANTEE_DRAWS = 6
-
 var card_container: Node
 var equation_area: Node
 
@@ -34,15 +32,25 @@ func draw_card() -> Control:
 		Global.reshuffle_discard_into_deck()
 		if Global.deck.size() == 0:
 			return null
-
+	
 	var card: Control
 	var idx: int
 	idx = randi() % Global.deck.size()
 	card = Global.deck[idx]
+	
+	if not is_instance_valid(card):
+		push_error("Card at index " + str(idx) + " is invalid or freed")
+		Global.deck.remove_at(idx)
+		return draw_card()
+	
 	Global.deck.remove_at(idx)
+	
+	if card.get_parent():
+		card.get_parent().remove_child(card)
 	
 	var card_name_before = get_card_name(card)
 	
+	card.show()
 	card_container.add_child(card)
 	var card_name_after = get_card_name(card)
 	print("AFTER adding to scene: ", card_name_after, " | Remaining in deck: ", Global.deck.size())
@@ -50,6 +58,9 @@ func draw_card() -> Control:
 	return card
 
 func get_card_name(card: Control) -> String:
+	if not is_instance_valid(card):
+		return "Invalid"
+		
 	var num_label = card.get_node_or_null("Area2D/CollisionShape2D/BaseNumCard/Label")
 	if num_label:
 		return "Number " + num_label.text
