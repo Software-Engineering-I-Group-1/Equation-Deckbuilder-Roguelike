@@ -210,7 +210,8 @@ func start_enemy_turn() -> void:
 	turn_label.text = "Enemy turn"
 
 	await get_tree().create_timer(ENEMY_TURN_DELAY).timeout
-	hp_bar.value -= ENEMY_DAMAGE
+	GameState.player_health -= ENEMY_DAMAGE
+	hp_bar.value = GameState.player_health
 
 	transition(CombatState.EnemyTurn)
 
