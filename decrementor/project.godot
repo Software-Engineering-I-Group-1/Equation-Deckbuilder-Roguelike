@@ -21,6 +21,10 @@ Global="*res://Global.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 GameState="*res://Scripts/game_state.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Decrementor"
