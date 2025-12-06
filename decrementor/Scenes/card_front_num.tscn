@@ -23,6 +23,10 @@ load_path = "res://.godot/imported/Hovered.png-2466167cdfadff2f06151dd7c985a20e.
 [node name="Card_front_num" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 108.0
+offset_top = 121.0
+offset_right = 108.0
+offset_bottom = 121.0
 script = ExtResource("1_2aokk")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -41,7 +45,7 @@ texture = ExtResource("5_od4am")
 [node name="Label" type="Label" parent="Area2D/CollisionShape2D/BaseNumCard"]
 offset_left = -15.0
 offset_top = -16.0
-offset_right = 9.0
+offset_right = 15.0
 offset_bottom = 15.0
 theme_override_font_sizes/font_size = 50
 text = " 0"
