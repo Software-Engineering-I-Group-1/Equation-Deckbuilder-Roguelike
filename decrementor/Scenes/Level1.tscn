@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=23 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Texture2D" uid="uid://cait548bqcg30" path="res://Assets/Decrementor_level1.png" id="1_6jj8j"]
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
@@ -32,6 +32,42 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q12u6"]
 bg_color = Color(0.27251795, 0.2656641, 0.2563085, 1)
+
+[sub_resource type="Animation" id="Animation_6jj8j"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(261, 207), Vector2(330, 207), Vector2(261, 207)]
+}
+
+[sub_resource type="Animation" id="Animation_06um6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(261, 207)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_06um6"]
+_data = {
+&"RESET": SubResource("Animation_06um6"),
+&"attack": SubResource("Animation_6jj8j")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slnnj"]
 bg_color = Color(0.27935672, 0.27935672, 0.27935672, 1)
@@ -328,6 +364,11 @@ show_percentage = false
 position = Vector2(261, 207)
 scale = Vector2(3, 3)
 texture = ExtResource("4_slnnj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI (CanvasLayer)/CombatManager (Node)/User"]
+libraries = {
+&"": SubResource("AnimationLibrary_06um6")
+}
 
 [node name="Enemy" type="Node2D" parent="UI (CanvasLayer)/CombatManager (Node)"]
 

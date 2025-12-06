@@ -197,6 +197,7 @@ func player_choose_attack() -> void:
 		var damage = max(result, 0)
 		if (current_req.call(damage)):
 			damage *= 2
+		$User/AnimationPlayer.play("attack")
 		enemy_hp_bar.value -= damage * Global.damage_multiplier
 		await get_tree().create_timer(ATTACK_DELAY).timeout
 		clear_equation_area()
