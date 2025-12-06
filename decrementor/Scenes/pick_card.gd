@@ -47,7 +47,7 @@ func _input(event):
 		if event.pressed:
 			var card = raycast_check_for_card()
 			if card:
-				addCardToDeck(card)
+				Global.deck.append(card)
 				get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
 
 # function checks card collision with mouse
@@ -62,9 +62,6 @@ func raycast_check_for_card():
 	if result.size() > 0:
 		return result[0].collider.get_parent()
 	return null
-
-func addCardToDeck(card: Control):
-	Global.deck.append(card)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
