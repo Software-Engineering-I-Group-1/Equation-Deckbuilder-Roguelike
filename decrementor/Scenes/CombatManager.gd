@@ -198,6 +198,7 @@ func player_choose_attack() -> void:
 		if (current_req.call(damage)):
 			damage *= 2
 		$User/AnimationPlayer.play("attack")
+		await get_tree().create_timer(ENEMY_TURN_DELAY).timeout
 		enemy_hp_bar.value -= damage * Global.damage_multiplier
 		await get_tree().create_timer(ATTACK_DELAY).timeout
 		clear_equation_area()
@@ -213,6 +214,7 @@ func start_enemy_turn() -> void:
 	state = CombatState.EnemyTurn
 	turn_label.text = "Enemy turn"
 
+	$Enemy/AnimationPlayer.play("enemy_attack")
 	await get_tree().create_timer(ENEMY_TURN_DELAY).timeout
 	GameState.player_health -= ENEMY_DAMAGE
 	hp_bar.value = GameState.player_health
