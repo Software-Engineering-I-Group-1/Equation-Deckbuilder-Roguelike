@@ -77,63 +77,63 @@ func _ready() -> void:
 			0: 
 				# Even num
 				var lambda = func(x) : return even_num(x)
-				requirement.text += "Is Even\n"
-				current_req_list.append(lambda)
+				requirement.text += "Is Even (1.5x)\n"
+				current_req_list.append({"func": lambda, "multiplier": 1.5})
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
 			1: 
 				# Odd num
 				var lambda = func(x) : return odd_num(x)
-				requirement.text += "Is Odd\n"
-				current_req_list.append(lambda)
+				requirement.text += "Is Odd (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 1.5})
 			2: 
 				# Greater than
-				var lambda = func(x) : return greater_than(x, 5)
-				requirement.text += "Greater than 5\n"
-				current_req_list.append(lambda)
+				var lambda = func(x) : return greater_than(x, 10)
+				requirement.text += "Greater than 10 (1.2x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 1.2})
 			3: 
 				# Greater than
-				var lambda = func(x) : return greater_than(x, 10)
-				requirement.text += "Greater than 10\n"
-				current_req_list.append(lambda)
+				var lambda = func(x) : return greater_than(x, 25)
+				requirement.text += "Greater than 25 (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 1.5})
 			4: 
 				# Less than
-				var lambda = func(x) : return less_than(x, 5)
-				requirement.text += "Less than 5\n"
-				current_req_list.append(lambda)
+				var lambda = func(x) : return less_than(x, 10)
+				requirement.text += "Less than 10 (2x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 2})
 			5: 
 				# Less than
-				var lambda = func(x) : return less_than(x, 10)
-				requirement.text += "Less than 10\n"
-				current_req_list.append(lambda)
+				var lambda = func(x) : return less_than(x, 25)
+				requirement.text += "Less than 25 (1.2x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 1.2})
 			6:
 				# Multiple of
 				var lambda = func(x) : return multiple_of(x, 3)
-				requirement.text += "Multiple of 3\n"
-				current_req_list.append(lambda)
+				requirement.text += "Multiple of 3(1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 1.5})
 			7:
 				# Multiple of
 				var lambda = func(x) : return multiple_of(x, 4)
-				requirement.text += "Multiple of 4\n"
-				current_req_list.append(lambda)
+				requirement.text += "Multiple of 4 (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 1.5})
 			8:
 				# Multiple of
 				var lambda = func(x) : return multiple_of(x, 5)
-				requirement.text += "Multiple of 5\n"
-				current_req_list.append(lambda)
+				requirement.text += "Multiple of 5 (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 1.5})
 			9:
 				# Is Prime
 				var lambda = func(x) : return isPrime(x)
-				requirement.text += "Is Prime\n"
-				current_req_list.append(lambda)
+				requirement.text += "Is Prime (2x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_req_list.append({"func": lambda, "multiplier": 2})
 
 	unique_numbers_list = [0,1,2,3,4,5,6,7,8,9]
 #	appending all strong requiremnets to list
@@ -143,9 +143,9 @@ func _ready() -> void:
 			0: 
 				# Even num
 				var lambda = func(x) : return even_num(x)
-				strong_requirement.text += "Is Even\n"
-				current_strong_req_list.append(lambda)
+				strong_requirement.text += "Is Even (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_strong_req_list.append({"func": lambda, "multiplier": 1.5})
 				
 				# removing conflicting requirements
 				unique_numbers_list.erase(1)
@@ -153,18 +153,17 @@ func _ready() -> void:
 			1: 
 				# Odd num
 				var lambda = func(x) : return odd_num(x)
-				strong_requirement.text += "Is Odd\n"
-				current_strong_req_list.append(lambda)
+				strong_requirement.text += "Is Odd (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
+				current_strong_req_list.append({"func": lambda, "multiplier": 1.5})
 				# removing conflicting requirements
 				unique_numbers_list.erase(0)
 			2: 
 				# Greater than
-				var lambda = func(x) : return greater_than(x, 5)
-				strong_requirement.text += "Greater than 5\n"
-				current_strong_req_list.append(lambda)
+				var lambda = func(x) : return greater_than(x, 25)
+				strong_requirement.text += "Greater than 25 (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_strong_req_list.append({"func": lambda, "multiplier": 1.5})
 				
 				# removing conflicting requirements
 				unique_numbers_list.erase(4)
@@ -172,29 +171,29 @@ func _ready() -> void:
 			3: 
 				# Greater than
 				var lambda = func(x) : return greater_than(x, 10)
-				strong_requirement.text += "Greater than 10\n"
-				current_strong_req_list.append(lambda)
+				strong_requirement.text += "Greater than 10 (1.2x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_strong_req_list.append({"func": lambda, "multiplier": 1.2})
 				
 				# removing conflicting requirements
 				unique_numbers_list.erase(4)
 				unique_numbers_list.erase(5)
 			4: 
 				# Less than
-				var lambda = func(x) : return less_than(x, 5)
-				strong_requirement.text += "Less than 5\n"
-				current_strong_req_list.append(lambda)
+				var lambda = func(x) : return less_than(x, 10)
+				strong_requirement.text += "Less than 10 (2x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_strong_req_list.append({"func": lambda, "multiplier": 2})
 				
 				# removing conflicting requirements
 				unique_numbers_list.erase(2)
 				unique_numbers_list.erase(3)
 			5: 
 				# Less than
-				var lambda = func(x) : return less_than(x, 10)
-				strong_requirement.text += "Less than 10\n"
-				current_strong_req_list.append(lambda)
+				var lambda = func(x) : return less_than(x, 25)
+				strong_requirement.text += "Less than 25 (1.2x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_strong_req_list.append({"func": lambda, "multiplier": 1.2})
 				
 				# removing conflicting requirements
 				unique_numbers_list.erase(2)
@@ -202,37 +201,36 @@ func _ready() -> void:
 			6:
 				# Multiple of
 				var lambda = func(x) : return multiple_of(x, 3)
-				strong_requirement.text += "Multiple of 3\n"
-				current_strong_req_list.append(lambda)
+				strong_requirement.text += "Multiple of 3 (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_strong_req_list.append({"func": lambda, "multiplier": 1.5})
 				
 				# removing conflicting requirements
 				unique_numbers_list.erase(9)
 			7:
 				# Multiple of
 				var lambda = func(x) : return multiple_of(x, 4)
-				strong_requirement.text += "Multiple of 4\n"
-				current_strong_req_list.append(lambda)
+				strong_requirement.text += "Multiple of 4 (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_strong_req_list.append({"func": lambda, "multiplier": 1.5})
 				
 				# removing conflicting requirements
 				unique_numbers_list.erase(9)
 			8:
 				# Multiple of
 				var lambda = func(x) : return multiple_of(x, 5)
-				strong_requirement.text += "Multiple of 5\n"
-				current_strong_req_list.append(lambda)
+				strong_requirement.text += "Multiple of 5 (1.5x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				current_strong_req_list.append({"func": lambda, "multiplier": 1.5})
 				
 				# removing conflicting requirements
 				unique_numbers_list.erase(9)
 			9:
 				# Is Prime
 				var lambda = func(x) : return isPrime(x)
-				strong_requirement.text += "Is Prime\n"
-				current_strong_req_list.append(lambda)
+				strong_requirement.text += "Is Prime (2x)\n"
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
+				current_strong_req_list.append({"func": lambda, "multiplier": 2})
 				# removing conflicting requirements
 				unique_numbers_list.erase(0)
 				unique_numbers_list.erase(6)
@@ -365,25 +363,26 @@ func player_choose_attack() -> void:
 	var doesDamage = true
 	
 	if result == null:
-		turn_label.text = "I messed up!"
+		turn_label.text = "Not a Proper Equation"
 		await get_tree().create_timer(MESSAGE_DISPLAY_TIME).timeout
 		clear_equation_area()
 		transition(CombatState.PlayerTurn)
 	else:
 		var damage = max(result, 0)
 		damage = int(damage)
-		var num_multiplers = 0
-		for req in current_strong_req_list:
-			if !req.call(damage):
+		var total_multiplier = 1.0
+		for req_data in current_strong_req_list:
+			if !req_data["func"].call(damage):
 				doesDamage = false
 			else:
 				damage += 10
-				num_multiplers += 1
-		for req in current_req_list:
-			if req.call(damage):
-				num_multiplers += 1
+				total_multiplier *= req_data["multiplier"]
+		for req_data in current_req_list:
+			if req_data["func"].call(damage):
+				total_multiplier *= req_data["multiplier"]
+		
 		if doesDamage:
-			damage = damage * pow(damageMultipler, num_multiplers)
+			damage = damage * total_multiplier
 		else:
 			damage *= 0
 		$User/AnimationPlayer.play("attack")

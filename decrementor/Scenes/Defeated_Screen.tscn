@@ -31,7 +31,7 @@ font_size = 64
 font = ExtResource("1_ctwwu")
 font_size = 96
 
-[node name="Node2D" type="Node2D"]
+[node name="Defeated" type="Node2D"]
 script = ExtResource("1_1qw6l")
 
 [node name="PlayerName" type="Control" parent="."]
@@ -42,6 +42,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_rb4mm")
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="PlayerName"]
 layout_mode = 0
@@ -50,6 +51,7 @@ offset_top = 267.0
 offset_right = 978.0
 offset_bottom = 494.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pl21w")
+metadata/_edit_use_anchors_ = true
 
 [node name="name" type="Label" parent="PlayerName"]
 layout_mode = 0
@@ -59,6 +61,7 @@ offset_right = 484.0
 offset_bottom = 374.0
 text = "Name : "
 label_settings = SubResource("LabelSettings_rb4mm")
+metadata/_edit_use_anchors_ = true
 
 [node name="LineEdit" type="LineEdit" parent="PlayerName"]
 layout_mode = 0
@@ -66,6 +69,7 @@ offset_left = 488.0
 offset_top = 312.0
 offset_right = 896.0
 offset_bottom = 382.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Submit" type="Button" parent="PlayerName"]
 layout_mode = 0
@@ -78,6 +82,7 @@ theme_override_font_sizes/font_size = 32
 text = "Submit"
 autowrap_mode = 3
 autowrap_trim_flags = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Score" type="Control" parent="."]
 layout_mode = 3
@@ -87,6 +92,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Score"]
 layout_mode = 0
@@ -96,17 +102,7 @@ offset_right = 833.0
 offset_bottom = 218.0
 text = "Score : "
 label_settings = SubResource("LabelSettings_ctwwu")
-
-[node name="Button" type="Button" parent="Score"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 569.0
-offset_right = 160.0
-offset_bottom = 631.0
-theme_override_fonts/font = ExtResource("1_ctwwu")
-theme_override_font_sizes/font_size = 32
-text = "Back"
-script = ExtResource("3_pl21w")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -119,6 +115,18 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 text = "U Died bozo"
 label_settings = SubResource("LabelSettings_1qw6l")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 22.0
+offset_top = 569.0
+offset_right = 160.0
+offset_bottom = 631.0
+theme_override_fonts/font = ExtResource("1_ctwwu")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+script = ExtResource("3_pl21w")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="PlayerName/Submit" to="PlayerName" method="_on_submit_pressed"]
-[connection signal="pressed" from="Score/Button" to="Score/Button" method="_on_pressed_defeat"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed_defeat"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=27 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Texture2D" uid="uid://cait548bqcg30" path="res://Assets/Decrementor_level1.png" id="1_6jj8j"]
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
 [ext_resource type="PackedScene" uid="uid://cuwcnbr7yu3mb" path="res://Scenes/hand_area.tscn" id="3_2h8qs"]
-[ext_resource type="Script" uid="uid://watu76vudatv" path="res://Scripts/placeholder_died.gd" id="3_joc8x"]
 [ext_resource type="PackedScene" uid="uid://dq2q8j8fww1ky" path="res://Scenes/equation_area.tscn" id="3_rpty4"]
 [ext_resource type="Script" uid="uid://cb8yi27uj3rbi" path="res://Scenes/card_manager.gd" id="4_6jj8j"]
 [ext_resource type="Script" uid="uid://4dxdcqq4odg0" path="res://Scenes/equation_area.gd" id="4_06um6"]
@@ -12,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/Images/User.png" id="4_slnnj"]
 [ext_resource type="Texture2D" uid="uid://crpdkoaxmqg" path="res://Assets/hovered deck.png" id="5_rpty4"]
 [ext_resource type="Script" uid="uid://cn0evpoljb0p4" path="res://Scenes/CombatManager.gd" id="5_ysn8j"]
-[ext_resource type="Texture2D" uid="uid://buqg0rddx5koj" path="res://Assets/Images/Enemy.png" id="9_6jj8j"]
+[ext_resource type="Texture2D" uid="uid://1y7dcrepgjor" path="res://Assets/Images/Enemy4.png" id="7_rpty4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q12u6"]
 
@@ -208,22 +207,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_jghel")
 value = 100.0
 show_percentage = false
 
-[node name="Died_placeholder" type="Button" parent="UI (CanvasLayer)/UI (Panel)"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -204.0
-offset_top = -38.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 12
-text = "U Died (placeholder cuz no functionality)"
-script = ExtResource("3_joc8x")
-
 [node name="Deck (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)"]
 offset_left = 1003.0
 offset_top = 435.0
@@ -333,7 +316,7 @@ libraries = {
 [node name="EnemyTexture" type="Sprite2D" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 position = Vector2(957, 196.00002)
 scale = Vector2(3, 3)
-texture = ExtResource("9_6jj8j")
+texture = ExtResource("7_rpty4")
 
 [node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 clip_contents = true
@@ -350,20 +333,20 @@ value = 100.0
 rounded = true
 
 [node name="Requirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
-offset_left = 592.0
-offset_top = 130.0
-offset_right = 893.0
-offset_bottom = 156.0
+offset_left = 583.0
+offset_top = 122.0
+offset_right = 884.0
+offset_bottom = 148.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 25
 text = "(Requirements)"
 horizontal_alignment = 1
 
 [node name="StrongRequirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
-offset_left = 658.0
-offset_top = 162.0
-offset_right = 828.0
-offset_bottom = 185.0
+offset_left = 460.0
+offset_top = 124.0
+offset_right = 630.0
+offset_bottom = 147.0
 text = "(StrongRequirements)"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
@@ -381,18 +364,22 @@ theme_override_font_sizes/font_size = 25
 text = "Level: 0"
 script = SubResource("GDScript_6jj8j")
 
-[node name="Pause Menu" type="Control" parent="."]
+[node name="Pause Menu" type="Control" parent="UI (CanvasLayer)"]
 process_mode = 3
 visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q12u6")
 
-[node name="ColorRect" type="ColorRect" parent="Pause Menu"]
+[node name="ColorRect" type="ColorRect" parent="UI (CanvasLayer)/Pause Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -401,7 +388,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.43529412)
 
-[node name="Button Box (VBoxContainer)" type="VBoxContainer" parent="Pause Menu"]
+[node name="Button Box (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)/Pause Menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -415,26 +402,26 @@ offset_bottom = 92.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume" type="Button" parent="Pause Menu/Button Box (VBoxContainer)"]
+[node name="Resume" type="Button" parent="UI (CanvasLayer)/Pause Menu/Button Box (VBoxContainer)"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 50
 text = "Resume"
 
-[node name="Settings" type="Button" parent="Pause Menu/Button Box (VBoxContainer)"]
+[node name="Settings" type="Button" parent="UI (CanvasLayer)/Pause Menu/Button Box (VBoxContainer)"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 
-[node name="Main Menu" type="Button" parent="Pause Menu/Button Box (VBoxContainer)"]
+[node name="Main Menu" type="Button" parent="UI (CanvasLayer)/Pause Menu/Button Box (VBoxContainer)"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 50
 text = "Main Menu
 "
 
-[node name="Title (Label)" type="Label" parent="Pause Menu"]
+[node name="Title (Label)" type="Label" parent="UI (CanvasLayer)/Pause Menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -453,7 +440,7 @@ text = "PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Settings (Panel)" type="Panel" parent="Pause Menu"]
+[node name="Settings (Panel)" type="Panel" parent="UI (CanvasLayer)/Pause Menu"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -463,7 +450,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q12u6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Pause Menu/Settings (Panel)"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI (CanvasLayer)/Pause Menu/Settings (Panel)"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -477,19 +464,19 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Pause Menu/Settings (Panel)/HBoxContainer"]
+[node name="Label" type="Label" parent="UI (CanvasLayer)/Pause Menu/Settings (Panel)/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 53
 text = "Volume: "
 
-[node name="HSlider" type="HSlider" parent="Pause Menu/Settings (Panel)/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="UI (CanvasLayer)/Pause Menu/Settings (Panel)/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 value = 50.0
 
-[node name="Back" type="Button" parent="Pause Menu/Settings (Panel)"]
+[node name="Back" type="Button" parent="UI (CanvasLayer)/Pause Menu/Settings (Panel)"]
 layout_mode = 1
 offset_right = 144.0
 offset_bottom = 81.0
@@ -507,5 +494,4 @@ position = Vector2(-1, -1)
 [node name="Card Manager" type="Node2D" parent="."]
 script = ExtResource("4_6jj8j")
 
-[connection signal="pressed" from="UI (CanvasLayer)/UI (Panel)/Died_placeholder" to="UI (CanvasLayer)/UI (Panel)/Died_placeholder" method="_on_pressed"]
 [connection signal="pressed" from="UI (CanvasLayer)/Deck (VBoxContainer)/Deck" to="Hand Area" method="_on_deck_pressed"]
