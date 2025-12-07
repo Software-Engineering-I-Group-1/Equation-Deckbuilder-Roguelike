@@ -34,11 +34,8 @@ var state = CombatState.PlayerTurn
 @onready var enemy_hp_bar = $Enemy/ProgressBar
 @onready var score = $Player_Score/Score
 @onready var requirement = $Enemy/Requirement
-@onready var strong_requirement = $Enemy/StrongRequirement
 
 var current_req_list = []
-var current_strong_req_list = []
-var damageMultipler = 2
 
 var hand_area: Node
 var equation_area: Node
@@ -54,193 +51,52 @@ func _ready() -> void:
 	var root = get_parent().get_parent()
 	hand_area = root.get_node("Hand Area")
 	equation_area = root.get_node("Equation Area")
+	
 	hp_bar.value = GameState.player_health
 	score.text = str(GameState.player_score).pad_zeros(8)
 	set_random_enemy_texture()
-	var unique_numbers_list = [0,1,2,3,4,5,6,7,8,9]
+	var unique_numbers_list = [0,1,2,3,4]
 	# for i in range(0, GameState.current_level):
 	requirement.text = ""
-	strong_requirement.text = ""
-	
-#	number of weak requirements calculated from level
-	var difficulty = (GameState.current_level / 5) + 1 - (GameState.current_level / 10)
-	
-#	number of strong requirements calculated from level
-	var strong_difficulty = (GameState.current_level / 10) + 4
-	
-#	decreasing damage multipler every 10 levels
-	damageMultipler = 2 - strong_difficulty*.1
-	
-#	appending all weak requirements to list
+	var difficulty = (GameState.current_level / 5) + 1
+	print("difficulty")
+	print(difficulty)
 	for i in range(difficulty):
 		var random_requirement = randi() % unique_numbers_list.size()
 		match unique_numbers_list[random_requirement]:
 			0: 
 				# Even num
-				var lambda = func(x) : return even_num(x)
 				requirement.text += "Is Even\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			1: 
-				# Odd num
-				var lambda = func(x) : return odd_num(x)
-				requirement.text += "Is Odd\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			2: 
-				# Greater than
-				var lambda = func(x) : return greater_than(x, 5)
-				requirement.text += "Greater than 5\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			3: 
-				# Greater than
-				var lambda = func(x) : return greater_than(x, 10)
-				requirement.text += "Greater than 10\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			4: 
-				# Less than
-				var lambda = func(x) : return less_than(x, 5)
-				requirement.text += "Less than 5\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			5: 
-				# Less than
-				var lambda = func(x) : return less_than(x, 10)
-				requirement.text += "Less than 10\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			6:
-				# Multiple of
-				var lambda = func(x) : return multiple_of(x, 3)
-				requirement.text += "Multiple of 3\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			7:
-				# Multiple of
-				var lambda = func(x) : return multiple_of(x, 4)
-				requirement.text += "Multiple of 4\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			8:
-				# Multiple of
-				var lambda = func(x) : return multiple_of(x, 5)
-				requirement.text += "Multiple of 5\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-			9:
-				# Is Prime
-				var lambda = func(x) : return isPrime(x)
-				requirement.text += "Is Prime\n"
-				current_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-
-	unique_numbers_list = [0,1,2,3,4,5,6,7,8,9]
-#	appending all strong requiremnets to list
-	for i in range(strong_difficulty):
-		var random_requirement = randi() % unique_numbers_list.size()
-		match unique_numbers_list[random_requirement]:
-			0: 
-				# Even num
 				var lambda = func(x) : return even_num(x)
-				strong_requirement.text += "Is Even\n"
-				current_strong_req_list.append(lambda)
+				current_req_list.append(lambda)
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(1)
-				unique_numbers_list.erase(9)
 			1: 
 				# Odd num
+				requirement.text += "Is Odd\n"
 				var lambda = func(x) : return odd_num(x)
-				strong_requirement.text += "Is Odd\n"
-				current_strong_req_list.append(lambda)
+				current_req_list.append(lambda)
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(0)
 			2: 
 				# Greater than
-				var lambda = func(x) : return greater_than(x, 5)
-				strong_requirement.text += "Greater than 5\n"
-				current_strong_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(4)
-				unique_numbers_list.erase(5)
-			3: 
-				# Greater than
+				requirement.text += "Greater than 10\n"
 				var lambda = func(x) : return greater_than(x, 10)
-				strong_requirement.text += "Greater than 10\n"
-				current_strong_req_list.append(lambda)
+				current_req_list.append(lambda)
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(4)
-				unique_numbers_list.erase(5)
-			4: 
+			3: 
 				# Less than
+				requirement.text += "Less than 5\n"
 				var lambda = func(x) : return less_than(x, 5)
-				strong_requirement.text += "Less than 5\n"
-				current_strong_req_list.append(lambda)
+				current_req_list.append(lambda)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+			4: 
+				# Greater than
+				requirement.text += "Greater than 15\n"
+				var lambda = func(x) : return greater_than(x, 10)
+				current_req_list.append(lambda)
 				unique_numbers_list.erase(unique_numbers_list[random_requirement])
 				
-				# removing conflicting requirements
-				unique_numbers_list.erase(2)
-				unique_numbers_list.erase(3)
-			5: 
-				# Less than
-				var lambda = func(x) : return less_than(x, 10)
-				strong_requirement.text += "Less than 10\n"
-				current_strong_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(2)
-				unique_numbers_list.erase(3)
-			6:
-				# Multiple of
-				var lambda = func(x) : return multiple_of(x, 3)
-				strong_requirement.text += "Multiple of 3\n"
-				current_strong_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(9)
-			7:
-				# Multiple of
-				var lambda = func(x) : return multiple_of(x, 4)
-				strong_requirement.text += "Multiple of 4\n"
-				current_strong_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(9)
-			8:
-				# Multiple of
-				var lambda = func(x) : return multiple_of(x, 5)
-				strong_requirement.text += "Multiple of 5\n"
-				current_strong_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(9)
-			9:
-				# Is Prime
-				var lambda = func(x) : return isPrime(x)
-				strong_requirement.text += "Is Prime\n"
-				current_strong_req_list.append(lambda)
-				unique_numbers_list.erase(unique_numbers_list[random_requirement])
-				
-				# removing conflicting requirements
-				unique_numbers_list.erase(0)
-				unique_numbers_list.erase(6)
-				unique_numbers_list.erase(7)
-				unique_numbers_list.erase(8)
-	
-	
+
+
 	start_player_turn()
 
 func set_random_enemy_texture() -> void:
@@ -364,7 +220,6 @@ func player_choose_attack() -> void:
 	
 	var result = evaluate_equation()
 	check_criterias_of_result(result)
-	var doesDamage = true
 	
 	if result == null:
 		turn_label.text = "I messed up!"
@@ -373,21 +228,9 @@ func player_choose_attack() -> void:
 		transition(CombatState.PlayerTurn)
 	else:
 		var damage = max(result, 0)
-		damage = int(damage)
-		var num_multiplers = 0
-		for req in current_strong_req_list:
-			if !req.call(damage):
-				doesDamage = false
-			else:
-				damage += 10
-				num_multiplers += 1
 		for req in current_req_list:
 			if req.call(damage):
-				num_multiplers += 1
-		if doesDamage:
-			damage = damage * pow(damageMultipler, num_multiplers)
-		else:
-			damage *= 0
+				damage *= 2
 		$User/AnimationPlayer.play("attack")
 		enemy_hp_bar.value -= damage * Global.damage_multiplier
 		await get_tree().create_timer(ATTACK_DELAY).timeout
@@ -456,15 +299,3 @@ func greater_than(num, num2) -> bool:
 
 func less_than(num, num2) -> bool:
 	return num < num2
-
-func multiple_of(num, num2) -> bool:
-	return num % num2 == 0
-	
-func isPrime(num) -> bool:
-	if num <= 1:
-		return false
-	var num_sqrt = int(sqrt(num))
-	for i in range(2,num_sqrt):
-		if (num % i == 0):
-			return false
-	return true
