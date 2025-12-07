@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://watu76vudatv" path="res://Scripts/placeholder_died.gd" id="3_joc8x"]
 [ext_resource type="PackedScene" uid="uid://dq2q8j8fww1ky" path="res://Scenes/equation_area.tscn" id="3_rpty4"]
 [ext_resource type="Script" uid="uid://cb8yi27uj3rbi" path="res://Scenes/card_manager.gd" id="4_6jj8j"]
-[ext_resource type="Script" path="res://Scenes/equation_area.gd" id="4_06um6"]
+[ext_resource type="Script" uid="uid://4dxdcqq4odg0" path="res://Scenes/equation_area.gd" id="4_06um6"]
 [ext_resource type="Texture2D" uid="uid://dcq3apv87xedo" path="res://Assets/Deck.png" id="4_rpty4"]
 [ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/Images/User.png" id="4_slnnj"]
 [ext_resource type="Texture2D" uid="uid://crpdkoaxmqg" path="res://Assets/hovered deck.png" id="5_rpty4"]
