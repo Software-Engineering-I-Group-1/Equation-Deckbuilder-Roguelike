@@ -23,10 +23,10 @@ load_path = "res://.godot/imported/Hovered.png-2466167cdfadff2f06151dd7c985a20e.
 [node name="Card_front_num" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 108.0
-offset_top = 121.0
-offset_right = 108.0
-offset_bottom = 121.0
+offset_left = 82.0
+offset_top = 105.0
+offset_right = 82.0
+offset_bottom = 105.0
 script = ExtResource("1_2aokk")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -66,7 +66,11 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_gkct0")
 script = ExtResource("3_1s7ae")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="." to="HoverSprite" method="_on_card_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="mouse_exited" from="." to="HoverSprite" method="_on_card_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="Area2D" to="HoverSprite" method="_on_card_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]
 [connection signal="mouse_exited" from="Area2D" to="HoverSprite" method="_on_card_mouse_exited"]
