@@ -54,6 +54,7 @@ func _ready() -> void:
 	
 	hp_bar.value = GameState.player_health
 	score.text = str(GameState.player_score).pad_zeros(8)
+	set_random_enemy_texture()
 	var unique_numbers_list = [0,1,2,3,4]
 	# for i in range(0, GameState.current_level):
 	requirement.text = ""
