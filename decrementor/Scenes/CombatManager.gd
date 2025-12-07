@@ -53,19 +53,19 @@ func _ready() -> void:
 	match random_number:
 		0: 
 			# Even num
-			requirement.text = "Is Even"
+			requirement.text = "Is Even (x2)"
 			current_req = func(x) : return even_num(x)
 		1: 
 			# Odd num
-			requirement.text = "Is Odd"
+			requirement.text = "Is Odd (x2)"
 			current_req = func(x) : return odd_num(x)
 		2: 
 			# Greater than
-			requirement.text = "Greater than 10"
+			requirement.text = "Greater than 10 (x2)"
 			current_req = func(x) : return greater_than(x)
 		3: 
 			# Less than
-			requirement.text = "Less than 5"
+			requirement.text = "Less than 5 (x2)"
 			current_req = func(x) : return less_than(x)
 			
 
