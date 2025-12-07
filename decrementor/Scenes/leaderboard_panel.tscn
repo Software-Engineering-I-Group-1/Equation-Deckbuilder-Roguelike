@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdijlxd6dj6bk"]
+[gd_scene load_steps=7 format=3 uid="uid://bdijlxd6dj6bk"]
 
+[ext_resource type="Texture2D" uid="uid://bvf61qcceyudm" path="res://Assets/Images/Decrementor.png" id="1_5xcyf"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="1_ql5ns"]
 [ext_resource type="Script" uid="uid://bnhpxgy7yf8aa" path="res://Scripts/leaderboard.gd" id="2_8lni3"]
 [ext_resource type="Script" uid="uid://cnhn8vbxr3t0o" path="res://Scripts/back_button.gd" id="2_vdukc"]
@@ -20,25 +21,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.8072097, 0.081222214, 0.122244306, 1)
-
-[node name="Button" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 569.0
-offset_right = 160.0
-offset_bottom = 631.0
-theme_override_fonts/font = ExtResource("1_ql5ns")
-theme_override_font_sizes/font_size = 32
-text = "Back"
-script = ExtResource("2_vdukc")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.66003, 323.71997)
+scale = Vector2(3.608375, 3.5920002)
+texture = ExtResource("1_5xcyf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -79,4 +65,15 @@ theme = SubResource("Theme_vdukc")
 columns = 3
 script = ExtResource("2_8lni3")
 
-[connection signal="pressed" from="ColorRect/Button" to="ColorRect/Button" method="_on_pressed_leaderboard"]
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 569.0
+offset_right = 160.0
+offset_bottom = 631.0
+theme_override_fonts/font = ExtResource("1_ql5ns")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+script = ExtResource("2_vdukc")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed_leaderboard"]
