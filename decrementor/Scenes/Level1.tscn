@@ -30,9 +30,6 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q12u6"]
-bg_color = Color(0.27251795, 0.2656641, 0.2563085, 1)
-
 [sub_resource type="Animation" id="Animation_06um6"]
 length = 0.001
 tracks/0/type = "value"
@@ -154,6 +151,9 @@ func _ready() -> void:
 	text = \"Level: \" + str(GameState.current_level)
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q12u6"]
+bg_color = Color(0.27251795, 0.2656641, 0.2563085, 1)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="DecrementorLevel1" type="Sprite2D" parent="."]
@@ -223,122 +223,6 @@ theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 12
 text = "U Died (placeholder cuz no functionality)"
 script = ExtResource("3_joc8x")
-
-[node name="Pause Menu" type="Control" parent="UI (CanvasLayer)"]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_q12u6")
-
-[node name="ColorRect" type="ColorRect" parent="UI (CanvasLayer)/Pause Menu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.43529412)
-
-[node name="Button Box (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)/Pause Menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -127.5
-offset_top = -92.5
-offset_right = 127.5
-offset_bottom = 92.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Resume" type="Button" parent="UI (CanvasLayer)/Pause Menu/Button Box (VBoxContainer)"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 50
-text = "Resume"
-
-[node name="Settings" type="Button" parent="UI (CanvasLayer)/Pause Menu/Button Box (VBoxContainer)"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 50
-text = "Settings"
-
-[node name="Main Menu" type="Button" parent="UI (CanvasLayer)/Pause Menu/Button Box (VBoxContainer)"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 50
-text = "Main Menu
-"
-
-[node name="Title (Label)" type="Label" parent="UI (CanvasLayer)/Pause Menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -287.5
-offset_top = -256.0
-offset_right = 287.5
-offset_bottom = -99.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 100
-text = "PAUSED"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Settings (Panel)" type="Panel" parent="UI (CanvasLayer)/Pause Menu"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_q12u6")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI (CanvasLayer)/Pause Menu/Settings (Panel)"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -285.0
-offset_top = -27.0
-offset_right = 125.5
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="UI (CanvasLayer)/Pause Menu/Settings (Panel)/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 53
-text = "Volume: "
-
-[node name="HSlider" type="HSlider" parent="UI (CanvasLayer)/Pause Menu/Settings (Panel)/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-value = 50.0
-
-[node name="Back" type="Button" parent="UI (CanvasLayer)/Pause Menu/Settings (Panel)"]
-layout_mode = 1
-offset_right = 144.0
-offset_bottom = 81.0
-theme_override_fonts/font = ExtResource("2_joc8x")
-theme_override_font_sizes/font_size = 53
-text = "<<<"
 
 [node name="Deck (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)"]
 offset_left = 1003.0
@@ -453,10 +337,10 @@ texture = ExtResource("9_6jj8j")
 
 [node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 clip_contents = true
-offset_left = 821.0
-offset_top = 248.0
-offset_right = 1099.0
-offset_bottom = 288.0
+offset_left = 824.0
+offset_top = 65.0
+offset_right = 1102.0
+offset_bottom = 105.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 39
 theme_override_styles/background = SubResource("StyleBoxFlat_slnnj")
@@ -466,20 +350,20 @@ value = 100.0
 rounded = true
 
 [node name="Requirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
-offset_left = 810.0
-offset_top = 106.0
-offset_right = 1111.0
-offset_bottom = 129.0
+offset_left = 592.0
+offset_top = 130.0
+offset_right = 893.0
+offset_bottom = 156.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 25
 text = "(Requirements)"
 horizontal_alignment = 1
 
 [node name="StrongRequirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
-offset_left = 674.0
-offset_top = 108.0
-offset_right = 844.0
-offset_bottom = 131.0
+offset_left = 658.0
+offset_top = 162.0
+offset_right = 828.0
+offset_bottom = 185.0
 text = "(StrongRequirements)"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
@@ -496,6 +380,122 @@ theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 25
 text = "Level: 0"
 script = SubResource("GDScript_6jj8j")
+
+[node name="Pause Menu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q12u6")
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.43529412)
+
+[node name="Button Box (VBoxContainer)" type="VBoxContainer" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -92.5
+offset_right = 127.5
+offset_bottom = 92.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="Pause Menu/Button Box (VBoxContainer)"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="Settings" type="Button" parent="Pause Menu/Button Box (VBoxContainer)"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="Main Menu" type="Button" parent="Pause Menu/Button Box (VBoxContainer)"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 50
+text = "Main Menu
+"
+
+[node name="Title (Label)" type="Label" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.5
+offset_top = -256.0
+offset_right = 287.5
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings (Panel)" type="Panel" parent="Pause Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q12u6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause Menu/Settings (Panel)"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -27.0
+offset_right = 125.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Pause Menu/Settings (Panel)/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "Volume: "
+
+[node name="HSlider" type="HSlider" parent="Pause Menu/Settings (Panel)/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[node name="Back" type="Button" parent="Pause Menu/Settings (Panel)"]
+layout_mode = 1
+offset_right = 144.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "<<<"
 
 [node name="Equation Area" parent="." instance=ExtResource("3_rpty4")]
 position = Vector2(9, -7)
