@@ -75,6 +75,7 @@ func _ready() -> void:
 # Checks if the battle has been won, if so create a new enemy.
 func _process(delta: float) -> void:
 	if !enemy_alive() && player_alive():
+		await get_tree().create_timer(ENEMY_TURN_DELAY).timeout
 		end_battle(true)
 	elif !player_alive():
 		end_battle(false)
@@ -198,7 +199,6 @@ func player_choose_attack() -> void:
 		if (current_req.call(damage)):
 			damage *= 2
 		$User/AnimationPlayer.play("attack")
-		await get_tree().create_timer(ENEMY_TURN_DELAY).timeout
 		enemy_hp_bar.value -= damage * Global.damage_multiplier
 		await get_tree().create_timer(ATTACK_DELAY).timeout
 		clear_equation_area()
