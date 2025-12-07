@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/Images/User.png" id="4_slnnj"]
 [ext_resource type="Texture2D" uid="uid://crpdkoaxmqg" path="res://Assets/hovered deck.png" id="5_rpty4"]
 [ext_resource type="Script" uid="uid://cn0evpoljb0p4" path="res://Scenes/CombatManager.gd" id="5_ysn8j"]
-[ext_resource type="Texture2D" uid="uid://buqg0rddx5koj" path="res://Assets/Images/Enemy.png" id="9_6jj8j"]
+[ext_resource type="Texture2D" uid="uid://1y7dcrepgjor" path="res://Assets/Images/Enemy4.png" id="9_6jj8j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q12u6"]
 
@@ -441,15 +441,15 @@ libraries = {
 
 [node name="EnemyTexture" type="Sprite2D" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 position = Vector2(957, 196.00002)
-scale = Vector2(3, 3)
+scale = Vector2(2.0781255, 2.1562502)
 texture = ExtResource("9_6jj8j")
 
 [node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 clip_contents = true
-offset_left = 821.0
-offset_top = 248.0
-offset_right = 1099.0
-offset_bottom = 288.0
+offset_left = 825.0
+offset_top = 240.0
+offset_right = 1103.0
+offset_bottom = 280.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 39
 theme_override_styles/background = SubResource("StyleBoxFlat_slnnj")

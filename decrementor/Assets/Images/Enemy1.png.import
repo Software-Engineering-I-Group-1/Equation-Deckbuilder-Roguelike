@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://60v7n8ccah3p"
-path="res://.godot/imported/pixilart-drawing.png-bf4a5f41fb8727d9010c28860086ca58.ctex"
+uid="uid://d2b280wh60pnq"
+path="res://.godot/imported/Enemy1.png-4d4347a2599b9955151d6fb0db3b9bad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/pixilart-drawing.png"
-dest_files=["res://.godot/imported/pixilart-drawing.png-bf4a5f41fb8727d9010c28860086ca58.ctex"]
+source_file="res://Assets/Images/Enemy1.png"
+dest_files=["res://.godot/imported/Enemy1.png-4d4347a2599b9955151d6fb0db3b9bad.ctex"]
 
 [params]
 
