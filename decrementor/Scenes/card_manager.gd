@@ -1,7 +1,5 @@
 extends Node2D
-
 const CARD_LOCATION_MASKS = 2
-
 var card_being_dragged
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,16 +23,22 @@ func _input(event):
 					#set position of card in equation area
 					parent_of_card_being_dragged.remove_child(card_being_dragged)
 					equation_area_found.get_child(2).add_child(card_being_dragged)
+					# Hide the label in the equation area
+					hide_equation_area_label(equation_area_found)
 				elif hand_area_found:
 					#set position of card in equation area
 					parent_of_card_being_dragged.remove_child(card_being_dragged)
 					hand_area_found.get_child(2).add_child(card_being_dragged)
-					
 				else:
 					parent_of_card_being_dragged.remove_child(card_being_dragged)
 					parent_of_card_being_dragged.add_child(card_being_dragged)
-
 			card_being_dragged = null
+
+# Helper function to hide the label in equation area
+func hide_equation_area_label(equation_area):
+	var label_node = equation_area.get_node_or_null("Label")
+	if label_node:
+		label_node.visible = false
 
 # function checks card collision with mouse
 func raycast_check_for_card():
@@ -56,9 +60,7 @@ func raycast_check_for_equation_area():
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
 	parameters.collision_mask = CARD_LOCATION_MASKS
-	#print(parameters.collision_mask)
 	var result = space_state.intersect_point(parameters)
-	#print(result)
 	if result.size() > 0:
 		return result[0].collider.get_parent()
 	return null
@@ -70,9 +72,7 @@ func raycast_check_for_hand_area():
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
 	parameters.collision_mask = CARD_LOCATION_MASKS
-	#print(parameters.collision_mask)
 	var result = space_state.intersect_point(parameters)
-	#print(result)
 	if result.size() > 0:
 		return result[0].collider.get_parent()
 	return null

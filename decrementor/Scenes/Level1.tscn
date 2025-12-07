@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cait548bqcg30" path="res://Assets/Decrementor_level1.png" id="1_6jj8j"]
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
-[ext_resource type="PackedScene" uid="uid://cuwcnbr7yu3mb" path="res://Scenes/hand_area.tscn" id="3_2h8qs"]
+[ext_resource type="PackedScene" uid="uid://dah3kijylmaik" path="res://Scenes/hand_area.tscn" id="3_2h8qs"]
 [ext_resource type="Script" uid="uid://watu76vudatv" path="res://Scripts/placeholder_died.gd" id="3_joc8x"]
 [ext_resource type="PackedScene" uid="uid://dq2q8j8fww1ky" path="res://Scenes/equation_area.tscn" id="3_rpty4"]
 [ext_resource type="Script" uid="uid://cb8yi27uj3rbi" path="res://Scenes/card_manager.gd" id="4_6jj8j"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/Images/User.png" id="4_slnnj"]
 [ext_resource type="Texture2D" uid="uid://crpdkoaxmqg" path="res://Assets/hovered deck.png" id="5_rpty4"]
 [ext_resource type="Script" uid="uid://cn0evpoljb0p4" path="res://Scenes/CombatManager.gd" id="5_ysn8j"]
-[ext_resource type="Texture2D" uid="uid://60v7n8ccah3p" path="res://Assets/Images/pixilart-drawing.png" id="8_rpty4"]
+[ext_resource type="Texture2D" uid="uid://buqg0rddx5koj" path="res://Assets/Images/Enemy.png" id="9_6jj8j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q12u6"]
 
@@ -50,7 +50,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Enemy/Sprite2D:position")
+tracks/1/path = NodePath("../Enemy/EnemyTexture:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,7 +80,7 @@ resource_name = "enemy_attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Enemy/Sprite2D:position")
+tracks/0/path = NodePath("../Enemy/EnemyTexture:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -116,7 +116,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("EnemyTexture:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -131,7 +131,7 @@ resource_name = "enemy_attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("EnemyTexture:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -335,10 +335,10 @@ text = "<<<"
 
 [node name="Deck (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)"]
 offset_left = 1003.0
-offset_top = 370.0
+offset_top = 435.0
 offset_right = 1067.0
-offset_bottom = 501.0
-scale = Vector2(2, 2)
+offset_bottom = 566.0
+scale = Vector2(1.5, 1.5)
 
 [node name="Label" type="Label" parent="UI (CanvasLayer)/Deck (VBoxContainer)"]
 layout_mode = 2
@@ -360,11 +360,12 @@ script = ExtResource("5_ysn8j")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -338.0
+offset_left = -343.99994
 offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 40.0
+offset_right = 38.0
+offset_bottom = 74.0
 grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 4
 alignment = 2
 
@@ -381,10 +382,11 @@ theme_override_font_sizes/font_size = 53
 text = "XXXXXXXX"
 
 [node name="Label" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)"]
-offset_left = 465.0
-offset_top = 2.0
-offset_right = 683.0
-offset_bottom = 83.0
+offset_left = 494.0
+offset_top = 1.0
+offset_right = 712.0
+offset_bottom = 82.0
+scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 45
 text = "Your Turn"
@@ -392,20 +394,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Attack_Button" type="Button" parent="UI (CanvasLayer)/CombatManager (Node)"]
-offset_left = 761.0
-offset_top = 336.0
-offset_right = 903.0
-offset_bottom = 414.0
+offset_left = 978.0
+offset_top = 346.0
+offset_right = 1120.0
+offset_bottom = 424.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 32
 text = "Equate
 "
 
 [node name="Player_HP" type="HBoxContainer" parent="UI (CanvasLayer)/CombatManager (Node)"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 430.5
-offset_bottom = 74.0
+offset_left = 66.99999
+offset_top = 18.000002
+offset_right = 477.5
+offset_bottom = 72.0
+scale = Vector2(0.8, 0.8)
 
 [node name="Label" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Player_HP"]
 layout_mode = 2
@@ -436,17 +439,17 @@ libraries = {
 
 [node name="Enemy" type="Node2D" parent="UI (CanvasLayer)/CombatManager (Node)"]
 
-[node name="Sprite2D" type="Sprite2D" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
+[node name="EnemyTexture" type="Sprite2D" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 position = Vector2(957, 196.00002)
 scale = Vector2(3, 3)
-texture = ExtResource("8_rpty4")
+texture = ExtResource("9_6jj8j")
 
 [node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 clip_contents = true
-offset_left = 823.0
-offset_top = 278.0
-offset_right = 1101.0
-offset_bottom = 305.0
+offset_left = 821.0
+offset_top = 248.0
+offset_right = 1099.0
+offset_bottom = 288.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 39
 theme_override_styles/background = SubResource("StyleBoxFlat_slnnj")
@@ -468,7 +471,7 @@ libraries = {
 }
 
 [node name="Equation Area" parent="." instance=ExtResource("3_rpty4")]
-position = Vector2(-3, -6)
+position = Vector2(9, -7)
 script = ExtResource("4_06um6")
 
 [node name="Hand Area" parent="." instance=ExtResource("3_2h8qs")]
