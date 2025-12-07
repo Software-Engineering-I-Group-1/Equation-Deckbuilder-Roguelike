@@ -490,6 +490,163 @@ theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 53
 text = "<<<"
 
+[node name="Deck (VBoxContainer)" type="VBoxContainer" parent="UI (CanvasLayer)"]
+offset_left = 1003.0
+offset_top = 435.0
+offset_right = 1067.0
+offset_bottom = 566.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="UI (CanvasLayer)/Deck (VBoxContainer)"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 30
+text = "Deck"
+horizontal_alignment = 1
+
+[node name="Deck" type="TextureButton" parent="UI (CanvasLayer)/Deck (VBoxContainer)"]
+layout_mode = 2
+texture_normal = ExtResource("4_rpty4")
+texture_pressed = ExtResource("5_rpty4")
+texture_hover = ExtResource("5_rpty4")
+
+[node name="CombatManager (Node)" type="Node" parent="UI (CanvasLayer)"]
+script = ExtResource("5_ysn8j")
+
+[node name="Player_Score" type="HBoxContainer" parent="UI (CanvasLayer)/CombatManager (Node)"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -343.99994
+offset_top = 20.0
+offset_right = 38.0
+offset_bottom = 74.0
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="Text" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Player_Score"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "SCORE:"
+
+[node name="Score" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Player_Score"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "XXXXXXXX"
+
+[node name="Label" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)"]
+offset_left = 494.0
+offset_top = 1.0
+offset_right = 712.0
+offset_bottom = 82.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 45
+text = "Your Turn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack_Button" type="Button" parent="UI (CanvasLayer)/CombatManager (Node)"]
+offset_left = 978.0
+offset_top = 346.0
+offset_right = 1120.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 32
+text = "Equate
+"
+
+[node name="Player_HP" type="HBoxContainer" parent="UI (CanvasLayer)/CombatManager (Node)"]
+offset_left = 66.99999
+offset_top = 18.000002
+offset_right = 477.5
+offset_bottom = 72.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Player_HP"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 53
+text = "HP: "
+
+[node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Player_HP"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_joc8x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jghel")
+value = 100.0
+show_percentage = false
+
+[node name="User" type="Node2D" parent="UI (CanvasLayer)/CombatManager (Node)"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI (CanvasLayer)/CombatManager (Node)/User"]
+position = Vector2(261, 207)
+scale = Vector2(3, 3)
+texture = ExtResource("4_slnnj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI (CanvasLayer)/CombatManager (Node)/User"]
+libraries = {
+&"": SubResource("AnimationLibrary_06um6")
+}
+
+[node name="Enemy" type="Node2D" parent="UI (CanvasLayer)/CombatManager (Node)"]
+
+[node name="EnemyTexture" type="Sprite2D" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
+position = Vector2(957, 196.00002)
+scale = Vector2(3, 3)
+texture = ExtResource("9_6jj8j")
+
+[node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
+clip_contents = true
+offset_left = 821.0
+offset_top = 248.0
+offset_right = 1099.0
+offset_bottom = 288.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 39
+theme_override_styles/background = SubResource("StyleBoxFlat_slnnj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_t3or0")
+step = 1.0
+value = 100.0
+rounded = true
+
+[node name="Requirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
+offset_left = 810.0
+offset_top = 106.0
+offset_right = 1111.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 25
+text = "(Requirements)"
+horizontal_alignment = 1
+
+[node name="StrongRequirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
+offset_left = 674.0
+offset_top = 108.0
+offset_right = 844.0
+offset_bottom = 131.0
+text = "(StrongRequirements)"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
+libraries = {
+&"": SubResource("AnimationLibrary_0wsr5")
+}
+
+[node name="Level Label" type="Label" parent="UI (CanvasLayer)"]
+offset_left = 72.0
+offset_top = 74.0
+offset_right = 163.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 25
+text = "Level: 0"
+script = SubResource("GDScript_6jj8j")
+
 [node name="Equation Area" parent="." instance=ExtResource("3_rpty4")]
 position = Vector2(9, -7)
 script = ExtResource("4_06um6")
