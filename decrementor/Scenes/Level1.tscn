@@ -1,13 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://nk7db4ecd6wr"]
+[gd_scene load_steps=28 format=3 uid="uid://nk7db4ecd6wr"]
 
 [ext_resource type="Texture2D" uid="uid://cait548bqcg30" path="res://Assets/Decrementor_level1.png" id="1_6jj8j"]
 [ext_resource type="Script" uid="uid://blff3bg4ahv26" path="res://Scripts/pause_menu.gd" id="1_q12u6"]
 [ext_resource type="FontFile" uid="uid://dwspfum8vw6ln" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_joc8x"]
-[ext_resource type="PackedScene" uid="uid://dah3kijylmaik" path="res://Scenes/hand_area.tscn" id="3_2h8qs"]
+[ext_resource type="PackedScene" uid="uid://cuwcnbr7yu3mb" path="res://Scenes/hand_area.tscn" id="3_2h8qs"]
 [ext_resource type="Script" uid="uid://watu76vudatv" path="res://Scripts/placeholder_died.gd" id="3_joc8x"]
 [ext_resource type="PackedScene" uid="uid://dq2q8j8fww1ky" path="res://Scenes/equation_area.tscn" id="3_rpty4"]
 [ext_resource type="Script" uid="uid://cb8yi27uj3rbi" path="res://Scenes/card_manager.gd" id="4_6jj8j"]
-[ext_resource type="Script" path="res://Scenes/equation_area.gd" id="4_06um6"]
+[ext_resource type="Script" uid="uid://4dxdcqq4odg0" path="res://Scenes/equation_area.gd" id="4_06um6"]
 [ext_resource type="Texture2D" uid="uid://dcq3apv87xedo" path="res://Assets/Deck.png" id="4_rpty4"]
 [ext_resource type="Texture2D" uid="uid://bo8eckos4du3f" path="res://Assets/Images/User.png" id="4_slnnj"]
 [ext_resource type="Texture2D" uid="uid://crpdkoaxmqg" path="res://Assets/hovered deck.png" id="5_rpty4"]
@@ -146,6 +146,13 @@ _data = {
 &"RESET": SubResource("Animation_0wsr5"),
 &"enemy_attack": SubResource("Animation_ug0sv")
 }
+
+[sub_resource type="GDScript" id="GDScript_6jj8j"]
+script/source = "extends Label
+
+func _ready() -> void:
+	text = \"Level: \" + str(GameState.current_level)
+"
 
 [node name="Node2D" type="Node2D"]
 
@@ -459,16 +466,29 @@ value = 100.0
 rounded = true
 
 [node name="Requirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
-offset_left = 938.0
+offset_left = 810.0
 offset_top = 106.0
-offset_right = 978.0
+offset_right = 1111.0
 offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 25
+text = "(Requirements)"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 libraries = {
 &"": SubResource("AnimationLibrary_0wsr5")
 }
+
+[node name="Level Label" type="Label" parent="UI (CanvasLayer)"]
+offset_left = 72.0
+offset_top = 74.0
+offset_right = 163.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 25
+text = "Level: 0"
+script = SubResource("GDScript_6jj8j")
 
 [node name="Equation Area" parent="." instance=ExtResource("3_rpty4")]
 position = Vector2(9, -7)

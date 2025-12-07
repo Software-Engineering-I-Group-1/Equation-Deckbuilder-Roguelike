@@ -35,7 +35,7 @@ var state = CombatState.PlayerTurn
 @onready var score = $Player_Score/Score
 @onready var requirement = $Enemy/Requirement
 
-var current_req: Callable
+var current_req_list = []
 
 var hand_area: Node
 var equation_area: Node
@@ -54,28 +54,47 @@ func _ready() -> void:
 	
 	hp_bar.value = GameState.player_health
 	score.text = str(GameState.player_score).pad_zeros(8)
-
-	set_random_enemy_texture()
-
+	var unique_numbers_list = [0,1,2,3,4]
 	# for i in range(0, GameState.current_level):
-	var random_number = randi() % 4
-	match random_number:
-		0: 
-			# Even num
-			requirement.text = "Is Even"
-			current_req = func(x) : return even_num(x)
-		1: 
-			# Odd num
-			requirement.text = "Is Odd"
-			current_req = func(x) : return odd_num(x)
-		2: 
-			# Greater than
-			requirement.text = "Greater than 10"
-			current_req = func(x) : return greater_than(x)
-		3: 
-			# Less than
-			requirement.text = "Less than 5"
-			current_req = func(x) : return less_than(x)
+	requirement.text = ""
+	var difficulty = (GameState.current_level / 5) + 1
+	print("difficulty")
+	print(difficulty)
+	for i in range(difficulty):
+		var random_requirement = randi() % unique_numbers_list.size()
+		match unique_numbers_list[random_requirement]:
+			0: 
+				# Even num
+				requirement.text += "Is Even\n"
+				var lambda = func(x) : return even_num(x)
+				current_req_list.append(lambda)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+			1: 
+				# Odd num
+				requirement.text += "Is Odd\n"
+				var lambda = func(x) : return odd_num(x)
+				current_req_list.append(lambda)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+			2: 
+				# Greater than
+				requirement.text += "Greater than 10\n"
+				var lambda = func(x) : return greater_than(x, 10)
+				current_req_list.append(lambda)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+			3: 
+				# Less than
+				requirement.text += "Less than 5\n"
+				var lambda = func(x) : return less_than(x, 5)
+				current_req_list.append(lambda)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+			4: 
+				# Greater than
+				requirement.text += "Greater than 15\n"
+				var lambda = func(x) : return greater_than(x, 10)
+				current_req_list.append(lambda)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
+				
+
 
 	start_player_turn()
 
@@ -85,7 +104,7 @@ func set_random_enemy_texture() -> void:
 	enemy_texture.texture = load(texture_path)
 
 # Checks if the battle has been won, if so create a new enemy.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !enemy_alive() && player_alive():
 		await get_tree().create_timer(ENEMY_TURN_DELAY).timeout
 		end_battle(true)
@@ -208,8 +227,9 @@ func player_choose_attack() -> void:
 		transition(CombatState.PlayerTurn)
 	else:
 		var damage = max(result, 0)
-		if (current_req.call(damage)):
-			damage *= 2
+		for req in current_req_list:
+			if req.call(damage):
+				damage *= 2
 		$User/AnimationPlayer.play("attack")
 		enemy_hp_bar.value -= damage * Global.damage_multiplier
 		await get_tree().create_timer(ATTACK_DELAY).timeout
@@ -273,8 +293,8 @@ func even_num(num) -> bool:
 func odd_num(num) -> bool:
 	return !(num % 2 == 0)
 
-func greater_than(num) -> bool:
-	return num > 10
+func greater_than(num, num2) -> bool:
+	return num > num2
 
-func less_than(num) -> bool:
-	return num < 5
+func less_than(num, num2) -> bool:
+	return num < num2
