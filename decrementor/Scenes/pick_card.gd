@@ -70,7 +70,7 @@ func raycast_check_for_card():
 	parameters.collide_with_areas = true
 	parameters.collision_mask = 1
 	var result = space_state.intersect_point(parameters)
-	print(result)
+	#print(result)
 	if result.size() > 0:
 		return result[0].collider.get_parent()
 	return null

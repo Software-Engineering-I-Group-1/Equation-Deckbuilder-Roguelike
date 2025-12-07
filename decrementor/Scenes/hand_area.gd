@@ -53,7 +53,7 @@ func draw_card() -> Control:
 	card.show()
 	card_container.add_child(card)
 	var card_name_after = get_card_name(card)
-	print("AFTER adding to scene: ", card_name_after, " | Remaining in deck: ", Global.deck.size())
+	#print("AFTER adding to scene: ", card_name_after, " | Remaining in deck: ", Global.deck.size())
 	
 	return card
 

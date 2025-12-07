@@ -63,7 +63,7 @@ func create_deck() -> void:
 	var deck_contents = []
 	for card in deck:
 		deck_contents.append(get_card_name(card))
-	print("Deck created with ", deck.size(), " cards (including ", permanent_cards.size(), " permanent cards): ", deck_contents)
+	#print("Deck created with ", deck.size(), " cards (including ", permanent_cards.size(), " permanent cards): ", deck_contents)
 
 func set_operator_visible(card: Control, operator_name: String) -> void:
 	card.already_initialized = true
@@ -129,7 +129,7 @@ func return_hand_to_deck(hand_container: Node) -> void:
 	for card in cards_to_return:
 		hand_container.remove_child(card)
 		deck.append(card)
-		print("Card returned to deck: ", get_card_name(card))
+		#print("Card returned to deck: ", get_card_name(card))
 
 func return_equation_to_deck(equation_container: Node) -> void:
 	if not equation_container:
