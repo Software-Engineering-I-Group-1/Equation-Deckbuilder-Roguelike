@@ -61,31 +61,31 @@ func _ready() -> void:
 				requirement.text += "Is Even\n"
 				var lambda = func(x) : return even_num(x)
 				current_req_list.append(lambda)
-				unique_numbers_list.erase(random_requirement)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
 			1: 
 				# Odd num
 				requirement.text += "Is Odd\n"
 				var lambda = func(x) : return odd_num(x)
 				current_req_list.append(lambda)
-				unique_numbers_list.erase(random_requirement)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
 			2: 
 				# Greater than
 				requirement.text += "Greater than 10\n"
 				var lambda = func(x) : return greater_than(x, 10)
 				current_req_list.append(lambda)
-				unique_numbers_list.erase(random_requirement)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
 			3: 
 				# Less than
 				requirement.text += "Less than 5\n"
 				var lambda = func(x) : return less_than(x, 5)
 				current_req_list.append(lambda)
-				unique_numbers_list.erase(random_requirement)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
 			4: 
 				# Greater than
 				requirement.text += "Greater than 15\n"
 				var lambda = func(x) : return greater_than(x, 10)
 				current_req_list.append(lambda)
-				unique_numbers_list.erase(random_requirement)
+				unique_numbers_list.erase(unique_numbers_list[random_requirement])
 				
 
 
