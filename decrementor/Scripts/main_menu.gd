@@ -7,6 +7,7 @@ func _ready():
 	get_node("Button Box (VBoxContainer)/Settings").pressed.connect(_on_settings_pressed)
 	get_node("Settings (Panel)/Back").pressed.connect(_on_back_pressed)
 	get_node("Button Box (VBoxContainer)/LeaderBoards").pressed.connect(_on_leaderboard_pressed)
+	Global.tutorial_shown = false
 
 	
 func _on_play_pressed():
