@@ -160,6 +160,7 @@ func _ready() -> void:
 				current_strong_req_list.append({"func": lambda, "multiplier": 1.5})
 				# removing conflicting requirements
 				unique_numbers_list.erase(0)
+				unique_numbers_list.erase(7)
 			2: 
 				# Greater than
 				var lambda = func(x) : return greater_than(x, 25)
@@ -215,6 +216,7 @@ func _ready() -> void:
 				current_strong_req_list.append({"func": lambda, "multiplier": 1.5})
 				
 				# removing conflicting requirements
+				unique_numbers_list.erase(1)
 				unique_numbers_list.erase(9)
 			8:
 				# Multiple of
