@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj51hsohx0qwu"]
+
+[ext_resource type="AudioStream" uid="uid://byj6mv78d3kjf" path="res://dance-queen-synth-pop-background-music-for-vlog-video-stories-short-2-427667.mp3" id="1_fbmny"]
+
+[node name="Music" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_fbmny")
+autoplay = true
