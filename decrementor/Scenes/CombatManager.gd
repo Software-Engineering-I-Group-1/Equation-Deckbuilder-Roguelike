@@ -67,7 +67,7 @@ func _ready() -> void:
 	var difficulty = (GameState.current_level / 5) + 1 - (GameState.current_level / 10)
 	
 #	number of strong requirements calculated from level
-	var strong_difficulty = (GameState.current_level / 10)
+	var strong_difficulty = (GameState.current_level / 10) + 1
 	
 #	decreasing damage multipler every 10 levels
 	damageMultipler = 2 - strong_difficulty*.1

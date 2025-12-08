@@ -229,10 +229,10 @@ script = ExtResource("5_ysn8j")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -343.99994
-offset_top = 20.0
-offset_right = 38.0
-offset_bottom = 74.0
+offset_left = -346.0
+offset_top = 10.000001
+offset_right = 36.0
+offset_bottom = 64.0
 grow_horizontal = 0
 scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 4
@@ -521,14 +521,15 @@ text = "Pull card here"
 horizontal_alignment = 1
 
 [node name="Req Label" type="Label" parent="."]
-offset_left = 416.0
-offset_top = 141.0
-offset_right = 843.0
-offset_bottom = 196.0
+offset_left = 381.0
+offset_top = 144.0
+offset_right = 816.0
+offset_bottom = 228.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 25
 text = "Orange requirments must be fulfilled to 
 deal damage. Both Green and Orange apply
 damage multipliers."
+horizontal_alignment = 1
 
 [connection signal="pressed" from="UI (CanvasLayer)/Deck (VBoxContainer)/Deck" to="Hand Area" method="_on_deck_pressed"]
