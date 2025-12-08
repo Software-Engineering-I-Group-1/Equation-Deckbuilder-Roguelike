@@ -9,7 +9,7 @@ enum CombatState {
 
 const EQUATION_AREA_CARD_CONTAINER_INDEX = 2
 
-const ENEMY_DAMAGE = 25
+const ENEMY_DAMAGE = 5
 const MESSAGE_DISPLAY_TIME = 1.5
 const ATTACK_DELAY = 0.5
 const ENEMY_TURN_DELAY = 0.8
