@@ -368,10 +368,10 @@ libraries = {
 }
 
 [node name="Level Label" type="Label" parent="UI (CanvasLayer)"]
-offset_left = 72.0
-offset_top = 74.0
-offset_right = 163.0
-offset_bottom = 97.0
+offset_left = 209.0
+offset_top = 66.0
+offset_right = 300.0
+offset_bottom = 92.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 25
 text = "Level: 0"

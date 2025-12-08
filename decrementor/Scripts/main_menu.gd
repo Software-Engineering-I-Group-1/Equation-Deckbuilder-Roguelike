@@ -8,6 +8,9 @@ func _ready():
 	get_node("Settings (Panel)/Back").pressed.connect(_on_back_pressed)
 	get_node("Button Box (VBoxContainer)/LeaderBoards").pressed.connect(_on_leaderboard_pressed)
 	Global.tutorial_shown = false
+	GameState.player_health = 100
+	GameState.enemy_health = 50
+	
 
 	
 func _on_play_pressed():
