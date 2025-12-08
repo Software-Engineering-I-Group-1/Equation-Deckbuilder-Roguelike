@@ -321,33 +321,39 @@ texture = ExtResource("7_rpty4")
 
 [node name="ProgressBar" type="ProgressBar" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
 clip_contents = true
-offset_left = 824.0
-offset_top = 65.0
-offset_right = 1102.0
-offset_bottom = 105.0
+offset_left = 817.0
+offset_top = 59.0
+offset_right = 1095.0
+offset_bottom = 99.0
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 39
 theme_override_styles/background = SubResource("StyleBoxFlat_slnnj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_t3or0")
+max_value = 50.0
 step = 1.0
-value = 100.0
+value = 50.0
 rounded = true
+show_percentage = false
 
 [node name="Requirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
-offset_left = 583.0
-offset_top = 122.0
-offset_right = 884.0
-offset_bottom = 148.0
+offset_left = 681.0
+offset_top = 111.0
+offset_right = 831.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0.36332086, 0.73621655, 0, 1)
 theme_override_fonts/font = ExtResource("2_joc8x")
 theme_override_font_sizes/font_size = 25
 text = "(Requirements)"
 horizontal_alignment = 1
 
 [node name="StrongRequirement" type="Label" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]
-offset_left = 460.0
-offset_top = 124.0
-offset_right = 630.0
-offset_bottom = 147.0
+offset_left = 440.0
+offset_top = 111.0
+offset_right = 656.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.9750616, 0.5548863, 7.70092e-07, 1)
+theme_override_fonts/font = ExtResource("2_joc8x")
+theme_override_font_sizes/font_size = 25
 text = "(StrongRequirements)"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI (CanvasLayer)/CombatManager (Node)/Enemy"]

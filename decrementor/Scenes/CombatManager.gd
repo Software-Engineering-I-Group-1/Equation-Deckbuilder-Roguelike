@@ -9,7 +9,7 @@ enum CombatState {
 
 const EQUATION_AREA_CARD_CONTAINER_INDEX = 2
 
-const ENEMY_DAMAGE = 500
+const ENEMY_DAMAGE = 5
 const MESSAGE_DISPLAY_TIME = 1.5
 const ATTACK_DELAY = 0.5
 const ENEMY_TURN_DELAY = 0.8
@@ -53,6 +53,8 @@ func _ready() -> void:
 	var root = get_parent().get_parent()
 	hand_area = root.get_node("Hand Area")
 	equation_area = root.get_node("Equation Area")
+	enemy_hp_bar.max_value = GameState.enemy_health
+	enemy_hp_bar.value = GameState.enemy_health
 	hp_bar.value = GameState.player_health
 	score.text = str(GameState.player_score).pad_zeros(8)
 	set_random_enemy_texture()
@@ -248,6 +250,7 @@ func _process(_delta: float) -> void:
 		await get_tree().create_timer(ENEMY_TURN_DELAY).timeout
 		end_battle(true)
 	elif !player_alive():
+		
 		end_battle(false)
 	
 
@@ -433,6 +436,7 @@ func end_battle(victory: bool) -> void:
 		print("Got a victory")
 		GameState.player_score += 1000
 		GameState.current_level += 1
+		GameState.enemy_health += 10
 		score.text = str(GameState.player_score).pad_zeros(8)
 		var hand_container = hand_area.get_node("CardContainer")
 		var equation_container = equation_area.get_child(EQUATION_AREA_CARD_CONTAINER_INDEX)
