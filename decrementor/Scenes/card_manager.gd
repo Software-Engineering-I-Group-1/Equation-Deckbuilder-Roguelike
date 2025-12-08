@@ -2,6 +2,8 @@ extends Node2D
 const CARD_LOCATION_MASKS = 2
 var card_being_dragged
 
+@onready var equation_area_ : Node = get_parent().get_node("Equation Area")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if card_being_dragged:
@@ -87,4 +89,7 @@ func raycast_check_for_hand_area():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Global.tutorial_shown == true:
+		hide_equation_area_label(equation_area_)
+	Global.tutorial_shown = true
 	pass # Replace with function body.

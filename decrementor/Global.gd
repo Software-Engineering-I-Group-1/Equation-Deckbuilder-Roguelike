@@ -9,6 +9,7 @@ var permanent_cards = []
 var deck_initialized: bool = false
 var score = 0
 var damage_multiplier = 1
+var tutorial_shown = false
 
 func _ready() -> void:
 	SilentWolf.configure({
